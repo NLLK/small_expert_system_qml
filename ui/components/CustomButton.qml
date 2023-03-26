@@ -10,10 +10,11 @@ Item{
     property color color: "#8053a2ff"
     property string text: text
     property int shape: CustomButton.Shape.Rectangle
+    property bool enabled: true
     signal clicked();
+    readonly property real enabledOpacity: 0.2
 
     function opacityChooser(item){
-
         let pressed = 0.4
         let hovered = 0.7
         let idle = 1.0
@@ -29,11 +30,9 @@ Item{
     Item{
         id: triangle
         visible: parent.shape === CustomButton.Shape.Triangle
-        enabled: visible
-
         readonly property int left_margin: 10
 
-        opacity: 1
+        opacity: customButtonItem.enabled ? 1 : enabledOpacity
 
         width: triangleImage.width + triangleText.width + triangle.left_margin
         height: triangleImage.height + triangleText.height + triangle.left_margin
@@ -54,13 +53,14 @@ Item{
         }
         MouseArea {
             id: triangleMouseArea
+            enabled: customButtonItem.enabled
             anchors.fill: parent
-            onClicked:  customButtonItem.clicked() // emit
+            onClicked: customButtonItem.enabled ? customButtonItem.clicked() : null
             hoverEnabled: true
-            onEntered: triangle.opacity = customButtonItem.opacityChooser(this)
-            onReleased: triangle.opacity = customButtonItem.opacityChooser(this)
-            onExited: triangle.opacity = 1//customButtonItem.opacityChooser(this)
-            onPressed: triangle.opacity = customButtonItem.opacityChooser(this)
+            onEntered: !customButtonItem.enabled ? 1 : triangle.opacity = customButtonItem.opacityChooser(this)
+            onReleased: !customButtonItem.enabled ? 1 : triangle.opacity = customButtonItem.opacityChooser(this)
+            onExited: !customButtonItem.enabled ? 1 : triangle.opacity = 1//customButtonItem.opacityChooser(this)
+            onPressed: !customButtonItem.enabled ? 1 : triangle.opacity = customButtonItem.opacityChooser(this)
 
         }
     }
@@ -68,10 +68,9 @@ Item{
     Rectangle {
         id: rectangle
         visible: parent.shape === CustomButton.Shape.Rectangle
-        enabled: visible
         property string text: customButtonItem.text
 
-        opacity: 1
+        opacity: customButtonItem.enabled ? 1 : enabledOpacity
 
         implicitHeight: customButtonItem.height
         implicitWidth: customButtonItem.width
@@ -91,13 +90,14 @@ Item{
 
         MouseArea {
             id: rectangleMouseArea
+            enabled: customButtonItem.enabled
             anchors.fill: parent
-            onClicked:  customButtonItem.clicked() // emit
+            onClicked: customButtonItem.clicked()
             hoverEnabled: true
-            onEntered: rectangle.opacity = customButtonItem.opacityChooser(this)
-            onReleased: rectangle.opacity = customButtonItem.opacityChooser(this)
-            onExited: rectangle.opacity = 1//customButtonItem.opacityChooser(this)
-            onPressed: rectangle.opacity = customButtonItem.opacityChooser(this)
+            onEntered: !customButtonItem.enabled ? 1 : rectangle.opacity = customButtonItem.opacityChooser(this)
+            onReleased: !customButtonItem.enabled ? 1 : rectangle.opacity = customButtonItem.opacityChooser(this)
+            onExited: !customButtonItem.enabled ? 1 : rectangle.opacity = 1//customButtonItem.opacityChooser(this)
+            onPressed: !customButtonItem.enabled ? 1 : rectangle.opacity = customButtonItem.opacityChooser(this)
         }
     }
 }

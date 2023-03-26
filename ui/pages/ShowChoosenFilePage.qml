@@ -18,7 +18,7 @@ Rectangle {
 
     Text {
         id: fileNameLabel
-        text: " "
+        text: MainUiController.isFilePathOK ? MainUiController.filePath : ''
         font.pointSize: 24
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: _choosenFileLabel.bottom
@@ -27,7 +27,7 @@ Rectangle {
 
     Text {
         id: numberOfQuestionsLabel
-        text: "Количество вопросов: "
+        text: "Количество вопросов: " + MainUiController.numberOfQuestions
         font.pointSize: 24
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: fileNameLabel.bottom
@@ -35,7 +35,7 @@ Rectangle {
     }
     Text {
         id: numberOfVariantsLabel
-        text: "Количество вариантов: "
+        text: "Количество вариантов: " + MainUiController.numberOfVariants
         font.pointSize: 24
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: numberOfQuestionsLabel.bottom
@@ -44,6 +44,8 @@ Rectangle {
     CustomButton {
         id: startTestButton
         text: "Начать тест"
+
+        enabled: MainUiController.isFilePathOK
 
         width: 350
         height: 90
@@ -55,7 +57,7 @@ Rectangle {
         id: chooseAnotherFileButton
         text: "Выбрать другой файл"
 
-        onClicked: fileDialog.open()
+        onClicked: testFileDialog.open()
 
         width: 460
         height: 90

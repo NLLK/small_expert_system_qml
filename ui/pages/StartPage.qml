@@ -34,6 +34,6 @@ Rectangle {
     }
     TestFileDialog{
         id: testFileDialog
-        onAccepted: mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE)
+        onAccepted:mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE)
     }
 }

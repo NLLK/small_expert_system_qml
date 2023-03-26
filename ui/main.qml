@@ -13,7 +13,4 @@ Window {
         source: PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE
         anchors.fill: parent
     }
-
-//    StartPage{
-//    }
 }
