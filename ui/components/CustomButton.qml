@@ -19,18 +19,11 @@ Item{
         let idle = 1.0
 
         if (item.pressed){
-            console.log('pressed')
             return pressed
         }
         if (item.entered){
-            if (item.containtMouse){
-                console.log('idle')
-                return idle
-            }
-            console.log('hovered')
             return hovered
         }
-        console.log('idle')
         return idle
     }
     Item{

@@ -27,8 +27,13 @@ Rectangle {
         text: "Выбрать файл"
         width: 350
         height: 90
-        onClicked: mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE)
+
+        onClicked: testFileDialog.open()//mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.FILE_DIALOG_PAGE)
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
+    }
+    TestFileDialog{
+        id: testFileDialog
+        onAccepted: mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE)
     }
 }

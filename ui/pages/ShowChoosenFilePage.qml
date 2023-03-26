@@ -55,6 +55,8 @@ Rectangle {
         id: chooseAnotherFileButton
         text: "Выбрать другой файл"
 
+        onClicked: fileDialog.open()
+
         width: 460
         height: 90
 
@@ -68,5 +70,9 @@ Rectangle {
         onClicked: mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.START_PAGE)
         //anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+    }
+    TestFileDialog{
+        id: testFileDialog
+        //onAccepted: mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.START_PAGE)
     }
 }
