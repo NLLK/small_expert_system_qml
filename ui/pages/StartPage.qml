@@ -1,7 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 
-import "./components"
+import "../components"
+import "../pageLoader.js" as PageLoaderJs
 Rectangle {
     anchors.fill: parent
 
@@ -24,6 +25,9 @@ Rectangle {
 
     CustomButton {
         text: "Выбрать файл"
+        width: 350
+        height: 90
+        onClicked: mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE)
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
     }

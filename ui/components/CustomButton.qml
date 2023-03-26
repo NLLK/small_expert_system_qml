@@ -8,13 +8,31 @@ Item{
             Triangle = 1
         }
     property color color: "#8053a2ff"
-    property string text: text//    property int width: 350
-    //    property int height: 90
+    property string text: text
     property int shape: CustomButton.Shape.Rectangle
     signal clicked();
 
+    function opacityChooser(item){
 
+        let pressed = 0.4
+        let hovered = 0.7
+        let idle = 1.0
 
+        if (item.pressed){
+            console.log('pressed')
+            return pressed
+        }
+        if (item.entered){
+            if (item.containtMouse){
+                console.log('idle')
+                return idle
+            }
+            console.log('hovered')
+            return hovered
+        }
+        console.log('idle')
+        return idle
+    }
     Item{
         id: triangle
         visible: parent.shape === CustomButton.Shape.Triangle
@@ -22,14 +40,13 @@ Item{
 
         readonly property int left_margin: 10
 
-        opacity: visible && !triangleMouseArea.pressed? 1: 0.4
+        opacity: 1
 
         width: triangleImage.width + triangleText.width + triangle.left_margin
         height: triangleImage.height + triangleText.height + triangle.left_margin
         Image {
             id: triangleImage
             source: "qrc:/ui/media/Triangle.png"
-
         }
         Text{
             id: triangleText
@@ -41,25 +58,27 @@ Item{
             anchors.verticalCenter: triangleImage.verticalCenter
             anchors.left: triangleImage.right
             anchors.leftMargin: triangle.left_margin
-
         }
-
         MouseArea {
             id: triangleMouseArea
             anchors.fill: parent
             onClicked:  customButtonItem.clicked() // emit
+            hoverEnabled: true
+            onEntered: triangle.opacity = customButtonItem.opacityChooser(this)
+            onReleased: triangle.opacity = customButtonItem.opacityChooser(this)
+            onExited: triangle.opacity = 1//customButtonItem.opacityChooser(this)
+            onPressed: triangle.opacity = customButtonItem.opacityChooser(this)
+
         }
     }
 
-
-
     Rectangle {
-        id: root
+        id: rectangle
         visible: parent.shape === CustomButton.Shape.Rectangle
         enabled: visible
         property string text: customButtonItem.text
 
-        opacity: visible && !rectangleMouseArea.pressed? 1: 0.3
+        opacity: 1
 
         implicitHeight: customButtonItem.height
         implicitWidth: customButtonItem.width
@@ -72,8 +91,8 @@ Item{
 
         Text {
             id: rectangleText
-            text: root.text
-            font.pixelSize: 0.5 * root.height
+            text: rectangle.text
+            font.pixelSize: 0.5 * rectangle.height
             anchors.centerIn: parent
         }
 
@@ -81,60 +100,11 @@ Item{
             id: rectangleMouseArea
             anchors.fill: parent
             onClicked:  customButtonItem.clicked() // emit
+            hoverEnabled: true
+            onEntered: rectangle.opacity = customButtonItem.opacityChooser(this)
+            onReleased: rectangle.opacity = customButtonItem.opacityChooser(this)
+            onExited: rectangle.opacity = 1//customButtonItem.opacityChooser(this)
+            onPressed: rectangle.opacity = customButtonItem.opacityChooser(this)
         }
     }
-
 }
-
-
-//Item {
-//    enum ShapeEnum{
-//        Rectangle = 0,
-//        Triangle = 1
-//    }
-//    property alias text: button.text
-//    property alias button: button
-//    property int shape: CustomButton.ShapeEnum.Rectangle
-//    property bool isTriagnle: shape === CustomButton.ShapeEnum.Triangle
-
-//    Button{
-//        id: button
-//        background: isTriagnle ? triangle : rect1
-//        font.pointSize: 32
-//        flat: true
-//        anchors.fill: parent
-//        highlighted: false
-//    }
-
-//    Rectangle {
-//        readonly property color colorIdle: "#8053a2ff"
-//        readonly property color colorHovered: "#ffffff"
-//        readonly property color colorDown: "#000000"
-
-//        id: rect1
-//        color: rect1.colorIdle//colorChooser(button)
-//        radius: 5
-
-////        function colorChooser(btn){
-////            if (btn.hovered){
-////                return rect.colorHovered
-////            }
-////            else if (btn.down){
-////                return rect.colorDown
-////            }
-////            else return rect.colorIdle
-////        }
-
-////        ColorAnimation {
-////            from: colorIdle
-////            to: button.hovered ? rect.colorHovered : button.down ? rect.colorDown : rect.colorIdle
-////            duration: 200
-////            running: button.hovered || button.down
-////        }
-//    }
-//    Image {
-//        id: triangle
-//        visible: isTriagnle
-//        source: "qrc:/ui/media/Triangle.png"
-//    }
-//}

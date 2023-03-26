@@ -66,8 +66,6 @@ Rectangle {
         text: 'Назад'
         shape: CustomButton.Shape.Triangle
         onClicked: mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.START_PAGE)
-//        width: 90
-//        height: 90
         //anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
     }
