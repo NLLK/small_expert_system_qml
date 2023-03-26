@@ -1,7 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>ui/main.qml</file>
-        <file>ui/StartPage.qml</file>
         <file>ui/components/CustomButton.qml</file>
+        <file>ui/pages/ShowChoosenFilePage.qml</file>
+        <file>ui/pages/StartPage.qml</file>
+        <file>ui/pageLoader.js</file>
+        <file>ui/media/Triangle.png</file>
+        <file>ui/pages/TestPage.qml</file>
     </qresource>
 </RCC>
