@@ -41,12 +41,15 @@ Item {
     Item{
         visible: questionField.type === QuestionField.Type.Ranges
         anchors.fill: parent
+        implicitWidth: 500
+        //implicitHeight: 90
         Rectangle{
             id: rangesRectangle
             color: "#8053a2ff"
             radius: 15
 
             anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
             implicitWidth: 350
             implicitHeight: 90
 
@@ -68,8 +71,9 @@ Item {
                         text = text.substring(0,text.length-1)
                     }
                     else
-                        if (!isNaN(value))
+                        if (!isNaN(value)){
                             questionField.value = parseFloat(text.replace(',', '.'))
+                        }
                 }
 
                 width: parent.width - 15
@@ -83,78 +87,79 @@ Item {
                 anchors.topMargin: 5
             }
         }
-    }
+        Item {
+            id: rangesSlider
 
+            property double maximum: 10
+            //property double value:
+            property double minimum:  0
 
-    Item {
-        id: rangesSlider
-        visible: questionField.type === -1
+            implicitWidth: 500;
+            height: 100
 
-        property double maximum: 10
-        property double value:    5
-        property double minimum:  0
+            anchors.top: rangesRectangle.bottom
+            anchors.horizontalCenter: rangesRectangle.horizontalCenter
+            anchors.topMargin: 30
 
-        width: 500;
-        height: 100
+            Rectangle {
+                id: rangesSliderLine
+                x:     rangesSliderPill.width/2
+                width: rangesSlider.width-(rangesSliderPill.width/2); height: 4
+                radius: 0.5 * height
+                color: 'black'
+                anchors.verticalCenter: parent.verticalCenter
+            }
 
-        Rectangle {
-            id: rangesSliderLine
-            x:     rangesSliderPill.width
-            width: rangesSlider.width-(rangesSliderPill.width); height: 4
-            radius: 0.5 * height
-            color: 'black'
-            anchors.verticalCenter: parent.verticalCenter
-        }
+            Repeater{//dots
+                model: 5
+                delegate:
+                    Rectangle {
+                        x: rangesSliderLine.x - 7.5 + ((rangesSliderLine.width) / 4) * index
+                        width: 15;  height: width
+                        radius: 0.5 * height
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: '#53A2FF'
+                    }
+            }
 
-        Repeater{//dots
-            model: 5
-            delegate:
-                Rectangle {
-                    x: rangesSliderLine.x - 7.5 + ((rangesSliderLine.width) / 4) * index
-                    width: 15;  height: width
-                    radius: 0.5 * height
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: '#53A2FF'
+            Rectangle {
+                id: rangesSliderPill
+
+                x: (rangesSliderLine.width + rangesSliderLine.x) * ((questionField.value - minimum) / (maximum - minimum))  // pixels from value
+                width: 30;  height: width
+                border.width: 3
+                radius: 0.5 * height
+                border.color: 'black'//enabled  &&  !mouseArea.pressed? '#000000': '#90000000' // disabled/pressed state
+                anchors.verticalCenter: parent.verticalCenter
+                color: '#53A2FF'
+            }
+
+            MouseArea {
+                id: mouseArea
+                readonly property int marginArea: rangesSliderPill.height
+                width: rangesSliderLine.width
+                height: rangesSliderLine.height + marginArea
+                x: rangesSliderLine.x
+                y: rangesSliderLine.y - marginArea/2
+
+                drag {
+                    target:   rangesSliderPill
+                    axis:     Drag.XAxis
+                    maximumX: rangesSliderLine.width + rangesSliderLine.x - rangesSliderPill.width/2
+                    minimumX: rangesSliderLine.x - rangesSliderPill.width/2
                 }
-        }
 
-        Rectangle {
-            id: rangesSliderPill
-
-            x: (rangesSliderLine.width + rangesSliderLine.x) * ((rangesSlider.value - minimum) / (maximum - minimum))  // pixels from value
-            width: 30;  height: width
-            border.width: 3
-            radius: 0.5 * height
-            border.color: 'black'//enabled  &&  !mouseArea.pressed? '#000000': '#90000000' // disabled/pressed state
-            anchors.verticalCenter: parent.verticalCenter
-            color: '#53A2FF'
-        }
-
-        MouseArea {
-            id: mouseArea
-            readonly property int marginArea: rangesSliderPill.height
-            width: rangesSliderLine.width
-            height: rangesSliderLine.height + marginArea
-            x: rangesSliderLine.x
-            y: rangesSliderLine.y - marginArea/2
-
-            drag {
-                target:   rangesSliderPill
-                axis:     Drag.XAxis
-                maximumX: rangesSliderLine.width + rangesSliderLine.x - rangesSliderPill.width/2
-                minimumX: rangesSliderLine.x - rangesSliderPill.width/2
+                onPositionChanged:  if(drag.active) rangesSlider.setPixels(rangesSliderPill.x + 0.5 * rangesSliderPill.width - rangesSliderLine.x) // drag pill
+                onClicked:{
+                    rangesSlider.setPixels(mouseArea.mouseX);
+                    rangesSliderPill.x = mouseX - rangesSliderPill.width/2 + mouseArea.x
+                }
             }
 
-            onPositionChanged:  if(drag.active) rangesSlider.setPixels(rangesSliderPill.x + 0.5 * rangesSliderPill.width - rangesSliderLine.x) // drag pill
-            onClicked:{
-                rangesSlider.setPixels(mouseArea.mouseX);
-                rangesSliderPill.x = mouseX - rangesSliderPill.width/2 + mouseArea.x
+            function setPixels(pixels) {
+                var value = ((maximum - minimum) / (rangesSliderLine.width)) * (pixels) + minimum // value from pixels
+                questionField.value = value.toFixed(2)
             }
-        }
-
-        function setPixels(pixels) {
-            var value = ((maximum - minimum) / (rangesSliderLine.width)) * (pixels) + minimum // value from pixels
-            questionField.value = value
         }
     }
 

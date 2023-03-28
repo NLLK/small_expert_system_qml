@@ -12,11 +12,12 @@ Rectangle {
     }
     QuestionField{
         id: qField
-        width: 350
-        height: 90
+        width: 600
+        height: 300
         anchors.centerIn: parent
         type: QuestionField.Type.Ranges
         onValueChanged: console.log(this.value)
+        value: 5
     }
     Text{
         text: "Какой-нибудь вопрос какого-то типа?"
