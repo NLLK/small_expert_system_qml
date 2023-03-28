@@ -8,5 +8,7 @@
         <file>ui/media/Triangle.png</file>
         <file>ui/pages/TestPage.qml</file>
         <file>ui/components/TestFileDialog.qml</file>
+        <file>ui/pages/QuestionPage.qml</file>
+        <file>ui/components/QuestionField.qml</file>
     </qresource>
 </RCC>

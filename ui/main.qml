@@ -10,7 +10,7 @@ Window {
 
     Loader{
         id: mainLoader
-        source: PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE
+        source: PageLoaderJs.PagesFilePathEnum.QUESTION_PAGE //PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE
         anchors.fill: parent
     }
 }

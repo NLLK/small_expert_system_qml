@@ -36,4 +36,14 @@ Rectangle {
         id: testFileDialog
         onAccepted:mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE)
     }
+    Text{
+        text: "Малая экспертная система.\nРазработано Артемом Бабановым\nbabanov-artem@yandex.ru"
+        font.pointSize: 20
+        color: "#28000000"
+        horizontalAlignment: Text.AlignHCenter
+
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottomMargin: 10
+    }
 }
