@@ -45,7 +45,8 @@ Item {
         //implicitHeight: 90
         Rectangle{
             id: rangesRectangle
-            color: "#8053a2ff"
+            border.color: "#8053a2ff"
+            border.width: 5
             radius: 15
 
             anchors.top: parent.top
@@ -91,10 +92,9 @@ Item {
             id: rangesSlider
 
             property double maximum: 10
-            //property double value:
             property double minimum:  0
 
-            implicitWidth: 500;
+            implicitWidth: 500
             height: 100
 
             anchors.top: rangesRectangle.bottom
@@ -103,33 +103,34 @@ Item {
 
             Rectangle {
                 id: rangesSliderLine
-                x:     rangesSliderPill.width/2
-                width: rangesSlider.width-(rangesSliderPill.width/2); height: 4
+                width: rangesSlider.width
+                height: 4
                 radius: 0.5 * height
                 color: 'black'
                 anchors.verticalCenter: parent.verticalCenter
             }
 
+            readonly property real dotWidth: 15
             Repeater{//dots
+                id: rangesSliderDotsRepeater
                 model: 5
                 delegate:
                     Rectangle {
-                        x: rangesSliderLine.x - 7.5 + ((rangesSliderLine.width) / 4) * index
-                        width: 15;  height: width
+                        x:  ((rangesSliderLine.width) / (rangesSliderDotsRepeater.model-1)) * index - rangesSlider.dotWidth/2
+                        width: rangesSlider.dotWidth;  height: width
                         radius: 0.5 * height
                         anchors.verticalCenter: parent.verticalCenter
                         color: '#53A2FF'
                     }
             }
-
             Rectangle {
                 id: rangesSliderPill
 
-                x: (rangesSliderLine.width + rangesSliderLine.x) * ((questionField.value - minimum) / (maximum - minimum))  // pixels from value
+                x: ((rangesSliderLine.width)/(maximum - minimum))*(questionField.value - minimum) - rangesSliderPill.width/2//(rangesSliderLine.width - rangesSliderPill.width/2) * ((questionField.value - minimum) / (maximum - minimum))  // pixels from value
                 width: 30;  height: width
                 border.width: 3
                 radius: 0.5 * height
-                border.color: 'black'//enabled  &&  !mouseArea.pressed? '#000000': '#90000000' // disabled/pressed state
+                border.color: 'black'
                 anchors.verticalCenter: parent.verticalCenter
                 color: '#53A2FF'
             }
@@ -139,26 +140,58 @@ Item {
                 readonly property int marginArea: rangesSliderPill.height
                 width: rangesSliderLine.width
                 height: rangesSliderLine.height + marginArea
-                x: rangesSliderLine.x
                 y: rangesSliderLine.y - marginArea/2
 
                 drag {
                     target:   rangesSliderPill
                     axis:     Drag.XAxis
-                    maximumX: rangesSliderLine.width + rangesSliderLine.x - rangesSliderPill.width/2
-                    minimumX: rangesSliderLine.x - rangesSliderPill.width/2
+                    maximumX: rangesSliderLine.width - rangesSliderPill.width/2
+                    minimumX: -rangesSliderPill.width/2
                 }
 
-                onPositionChanged:  if(drag.active) rangesSlider.setPixels(rangesSliderPill.x + 0.5 * rangesSliderPill.width - rangesSliderLine.x) // drag pill
+                onPositionChanged:  if(drag.active) rangesSlider.setPixels(rangesSliderPill.x) // drag pill
                 onClicked:{
-                    rangesSlider.setPixels(mouseArea.mouseX);
-                    rangesSliderPill.x = mouseX - rangesSliderPill.width/2 + mouseArea.x
+                    rangesSlider.setPixels(mouseArea.mouseX - rangesSliderPill.width/2);
+                    rangesSliderPill.x = mouseArea.mouseX - rangesSliderPill.width/2
                 }
             }
 
             function setPixels(pixels) {
-                var value = ((maximum - minimum) / (rangesSliderLine.width)) * (pixels) + minimum // value from pixels
+                var value = ((maximum - minimum) / (rangesSliderLine.width)) * (pixels + rangesSliderPill.width/2) + minimum  // value from pixels
+                if (value > maximum) value = maximum
+                if (value < minimum) value = minimum
                 questionField.value = value.toFixed(2)
+            }
+
+            Text {
+                id: rangesSliderMinimumLabel
+                text: 'Нет'
+                anchors.horizontalCenter: rangesSliderLine.left
+                anchors.top: rangesSliderLine.bottom
+                anchors.topMargin: 15
+                font.family: 'Inter'
+                font.pixelSize: 32
+                color: "black"
+            }
+            Text {
+                id: rangesSliderIntermediateLabel
+                text: 'Наверное'
+                anchors.horizontalCenter: rangesSliderLine.horizontalCenter
+                anchors.top: rangesSliderLine.bottom
+                anchors.topMargin: 15
+                font.family: 'Inter'
+                font.pixelSize: 32
+                color: "black"
+            }
+            Text {
+                id: rangesSliderMaximumLabel
+                text: 'Да'
+                anchors.horizontalCenter: rangesSliderLine.right
+                anchors.top: rangesSliderLine.bottom
+                anchors.topMargin: 15
+                font.family: 'Inter'
+                font.pixelSize: 32
+                color: "black"
             }
         }
     }
