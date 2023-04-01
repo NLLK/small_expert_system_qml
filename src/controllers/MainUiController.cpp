@@ -21,6 +21,7 @@ QUrl MainUiController::getFilePathURL()
     return filePathURL;
 }
 
+//TODO: return bool
 void MainUiController::setFilePath(const QString &newFilePath)
 {
     if (m_filePath == newFilePath)
@@ -28,11 +29,16 @@ void MainUiController::setFilePath(const QString &newFilePath)
     m_filePath = newFilePath;
 
     bool checked = testFileParser.checkFilePath(m_filePath);
+    this->setIsFilePathOK(checked);
 
     if (checked){
         filePathURL = QUrl(m_filePath);
-        setIsFilePathOK(checked);
+        if (testFileParser.parseFile(filePathURL)){
+            this->setNumberOfQuestions(testFileParser.questions());
+            this->setNumberOfVariants(testFileParser.variants());
+        }
     }
+
 
     emit filePathChanged();
 }

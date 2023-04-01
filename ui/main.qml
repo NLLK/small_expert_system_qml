@@ -6,7 +6,7 @@ Window {
     minimumHeight: 720
     minimumWidth: 1280
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("Экспертная система \"ПК-мастер\"")
 
     Loader{
         id: mainLoader

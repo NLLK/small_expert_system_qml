@@ -15,14 +15,14 @@ Rectangle {
     function nextQuestion(){
         if (questionIterator < numberOfQuestions - 1){ //check for last
             questionIterator += 1
-            loadFieldFromData(questionIterator)
+            loadFieldsFromData(questionIterator)
         }
         else {
             mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.RESULTS_PAGE)
         }
     }
 
-    function loadFieldFromData(iter){
+    function loadFieldsFromData(iter){
         let data = questionsData[iter]
 
         if (data.type === QuestionField.Type.Plain ||
@@ -31,7 +31,7 @@ Rectangle {
         {
             qField.value = 0
             qField.type = data.type
-            questionText = data.text
+            questionPage.questionText = data.text
         }
 
         switch (data.type){
@@ -53,7 +53,6 @@ Rectangle {
             qField.height = 300
             qField.optionsListModel.clear()
             qField.optionsListModel.append(data.options)
-            //qField.optionsListModel = data.options
             break;
         }
         }
@@ -66,11 +65,11 @@ Rectangle {
 
     //@disable-check M16
     Component.onCompleted: {
-        questionPage.numberOfQuestions = 3//MainUiController.numberOfQuestions
+        questionPage.numberOfQuestions = MainUiController.numberOfQuestions
         questionPage.questionsData.push({'type': 0, 'text': 'test question text', 'value': 5},
                                         {'type': 1, 'text': 'test question text ranges', 'minimum': 0, 'maximum': 10},
                                         {'type': 2, 'text': 'test question text options', 'options': [{'textOption':'Op1'}, {'textOption':'Op2'}, {'textOption':'Op3'}]})
-        questionPage.loadFieldFromData(0)
+        questionPage.loadFieldsFromData(0)
 
     }
     CustomButton {

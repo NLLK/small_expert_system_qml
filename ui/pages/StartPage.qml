@@ -37,7 +37,7 @@ Rectangle {
         onAccepted:mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE)
     }
     Text{
-        text: "Малая экспертная система.\nРазработано Артемом Бабановым\nbabanov-artem@yandex.ru"
+        text: "Экспертная система\nдля подбора комплектующих для ПК.\nРазработано Артемом Бабановым\nbabanov-artem@yandex.ru"
         font.pointSize: 20
         color: "#28000000"
         horizontalAlignment: Text.AlignHCenter

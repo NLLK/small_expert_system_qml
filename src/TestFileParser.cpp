@@ -13,6 +13,14 @@ bool TestFileParser::checkFilePath(QString filePath)
     return true;
 }
 
+bool TestFileParser::parseFile(QUrl fileUrl)
+{
+    m_fileUrl = fileUrl;
+    m_questions = 3;
+    m_variants = 44;
+    return true;
+}
+
 int TestFileParser::questions()
 {
     if (m_questions == -1)
