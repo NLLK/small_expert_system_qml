@@ -14,6 +14,12 @@ Item {
     property real value: 0
     property real minimum: 0
     property real maximum: 10
+    onValueChanged: {
+        if (type === QuestionField.Type.Ranges){
+            rangesSliderPill.x = rangesSlider.setValue(questionField.value)
+            console.log('value', value)
+        }
+    }
 
     property ListModel optionsListModel: ListModel{}
     Rectangle{
@@ -74,7 +80,6 @@ Item {
                     else
                         if (!isNaN(value)){
                             questionField.value = parseFloat(text)
-                            rangesSlider.value = questionField.value
                         }
                 }
 
@@ -94,17 +99,13 @@ Item {
 
             property double maximum: 10
             property double minimum:  0
-            property real value
+
             implicitWidth: 500
             height: 100
 
             anchors.top: rangesRectangle.bottom
             anchors.horizontalCenter: rangesRectangle.horizontalCenter
             anchors.topMargin: 30
-
-            onValueChanged: {
-                rangesSliderPill.x = rangesSlider.setValue(rangesSlider.value)
-            }
 
             Rectangle {
                 id: rangesSliderLine
@@ -131,7 +132,7 @@ Item {
             Rectangle {
                 id: rangesSliderPill
 
-                x: rangesSlider.setValue(rangesSlider.value)// pixels from value
+                x: rangesSlider.setValue(questionField.value)// pixels from value
                 width: 30;  height: width
                 border.width: 3
                 radius: 0.5 * height
