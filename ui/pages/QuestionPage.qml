@@ -29,9 +29,9 @@ Rectangle {
             data.type === QuestionField.Type.Ranges ||
             data.type === QuestionField.Type.Options)
         {
+            qField.value = 0
             qField.type = data.type
             questionText = data.text
-            qField.value = 0
         }
 
         switch (data.type){
