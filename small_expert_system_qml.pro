@@ -7,7 +7,8 @@ CONFIG+=
 SOURCES += \
         main.cpp \
         src/TestFileParser.cpp \
-        src/controllers/MainUiController.cpp
+        src/controllers/MainUiController.cpp \
+        src/models/QuestionModel.cpp
 
 RESOURCES += qml.qrc
 
@@ -24,4 +25,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     src/TestFileParser.h \
-    src/controllers/MainUiController.h
+    src/controllers/MainUiController.h \
+    src/models/QuestionModel.h

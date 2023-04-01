@@ -10,5 +10,6 @@
         <file>ui/components/TestFileDialog.qml</file>
         <file>ui/pages/QuestionPage.qml</file>
         <file>ui/components/QuestionField.qml</file>
+        <file>ui/pages/ResultsPage.qml</file>
     </qresource>
 </RCC>

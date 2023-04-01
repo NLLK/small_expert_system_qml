@@ -15,7 +15,7 @@ Item {
     property real minimum: 0
     property real maximum: 10
 
-    property ListModel optionsListModel
+    property ListModel optionsListModel: ListModel{}
     Rectangle{
         visible: questionField.type === QuestionField.Type.Plain
         color: "#8053a2ff"
