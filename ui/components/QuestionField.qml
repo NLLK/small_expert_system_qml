@@ -25,7 +25,6 @@ Item {
             width: parent.width - 15
             height: parent.height/2
             anchors.centerIn: parent
-            //anchors.fill: parent
             placeholderText: "0"
             text: ""
             font.family: 'Inter'
@@ -42,7 +41,6 @@ Item {
         visible: questionField.type === QuestionField.Type.Ranges
         anchors.fill: parent
         implicitWidth: 500
-        //implicitHeight: 90
         Rectangle{
             id: rangesRectangle
             border.color: "#8053a2ff"
@@ -58,22 +56,23 @@ Item {
                 id: rangesTextField
 
                 placeholderText: "0"
-                text: value
+                text: questionField.value + ''
 
                 font.family: 'Inter'
                 font.pixelSize: 32
                 color: "black"
                 background: Item{}
 
-                validator: DoubleValidator{bottom: 0; top: 10; decimals: 2}
+                //validator: RegularExpressionValidator{regularExpression: /[+-]?([0-9]*[.])?[0-9]+/}//DoubleValidator{bottom: 0; top: 10; decimals: 2; }//locale: "en_US"
                 onTextChanged: {
-                    let value = parseFloat(text.replace(',', '.'))
+                    let value = parseFloat(text)
                     if ((value > 10 || value < 0) && !isNaN(value)){
                         text = text.substring(0,text.length-1)
                     }
                     else
                         if (!isNaN(value)){
-                            questionField.value = parseFloat(text.replace(',', '.'))
+                            questionField.value = parseFloat(text)
+                            rangesSlider.value = questionField.value
                         }
                 }
 
@@ -93,13 +92,17 @@ Item {
 
             property double maximum: 10
             property double minimum:  0
-
+            property real value
             implicitWidth: 500
             height: 100
 
             anchors.top: rangesRectangle.bottom
             anchors.horizontalCenter: rangesRectangle.horizontalCenter
             anchors.topMargin: 30
+
+            onValueChanged: {
+                rangesSliderPill.x = rangesSlider.setValue(rangesSlider.value)
+            }
 
             Rectangle {
                 id: rangesSliderLine
@@ -126,7 +129,7 @@ Item {
             Rectangle {
                 id: rangesSliderPill
 
-                x: ((rangesSliderLine.width)/(maximum - minimum))*(questionField.value - minimum) - rangesSliderPill.width/2//(rangesSliderLine.width - rangesSliderPill.width/2) * ((questionField.value - minimum) / (maximum - minimum))  // pixels from value
+                x: rangesSlider.setValue(rangesSlider.value)// pixels from value
                 width: 30;  height: width
                 border.width: 3
                 radius: 0.5 * height
@@ -156,11 +159,17 @@ Item {
                 }
             }
 
+            function setValue(__value){
+                return ((rangesSliderLine.width)/(maximum - minimum))*(__value - minimum) - rangesSliderPill.width/2
+            }
+
             function setPixels(pixels) {
                 var value = ((maximum - minimum) / (rangesSliderLine.width)) * (pixels + rangesSliderPill.width/2) + minimum  // value from pixels
                 if (value > maximum) value = maximum
                 if (value < minimum) value = minimum
                 questionField.value = value.toFixed(2)
+                rangesTextField.text = questionField.value.toString()
+                rangesTextField.focus = false
             }
 
             Text {
