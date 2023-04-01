@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-
+import QtQml
+import './'
 Item {
     id: questionField
     enum Type{
@@ -14,6 +15,7 @@ Item {
     property real minimum: 0
     property real maximum: 10
 
+    property ListModel optionsListModel
     Rectangle{
         visible: questionField.type === QuestionField.Type.Plain
         color: "#8053a2ff"
@@ -205,4 +207,32 @@ Item {
         }
     }
 
+    Item{
+        visible: questionField.type === QuestionField.Type.Options
+        anchors.fill: parent
+
+        ListView {
+            id: optionsListView
+
+            model: optionsListModel
+            delegate: CustomButton{
+                width: ListView.view.width
+                height: 90
+                text: textOption
+                onClicked: {
+                    optionsListView.currentIndex = index
+                    questionField.value = index
+                }
+            }
+            clip: true
+            spacing: 5
+            highlightMoveDuration: 200
+            highlight: Rectangle { color: "lightsteelblue"; radius: 15 }
+            //focus: true
+
+            anchors.fill: parent
+        }
+
+
+    }
 }

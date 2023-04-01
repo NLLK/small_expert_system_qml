@@ -7,7 +7,7 @@ QuestionField{
     width: 600
     height: 300
     anchors.centerIn: parent
-    type: QuestionField.Type.Ranges
+    type: QuestionField.Type.Options
     onValueChanged: console.log(this.value)
    // value: 5
 }

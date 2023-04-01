@@ -15,9 +15,17 @@ Rectangle {
         width: 600
         height: 300
         anchors.centerIn: parent
-        type: QuestionField.Type.Ranges
+        type: QuestionField.Type.Options
         onValueChanged: console.log(this.value)
-        value: 5
+        //value: 5
+
+        optionsListModel:  ListModel{
+            ListElement{textOption: "option 1"}
+            ListElement{textOption: "option 2"}
+            ListElement{textOption: "option 3"}
+            ListElement{textOption: "option 4"}
+        }
+
     }
     Text{
         text: "Какой-нибудь вопрос какого-то типа?"
