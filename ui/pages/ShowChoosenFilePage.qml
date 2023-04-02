@@ -18,7 +18,7 @@ Rectangle {
 
     Text {
         id: fileNameLabel
-        text: MainUiController.isFilePathOK ? MainUiController.filePath : ''
+        text: MainUiController.isFilePathOK ? MainUiController.dataName : "Неверный формат файла! Выберите другой файл."
         font.pointSize: 24
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: _choosenFileLabel.bottom

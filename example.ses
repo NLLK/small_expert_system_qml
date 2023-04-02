@@ -1,0 +1,76 @@
+{
+  "name": "Выбор ПК",
+  "questions": [
+    {
+      "id": 0,
+      "text": "Ваш бюджет:",
+      "type": "ranges",
+      "data": {"from": 10000,"to": 300000,"step": 5000}
+    },
+    {
+      "id": 5,
+      "text": "Какой ваш любимый вендор видеокарт?",
+      "type": "choises",
+      "data": {"choises": ["NVIDEA","AMD"]}
+    },
+    {
+      "id": 6,
+      "text": "Какой ваш любимый производитель видеокарт?",
+      "type": "choises",
+      "data": {
+        "choises": ["Asrock","ASUS","ColorFul","Gigabyte","Inno3D","KFA2","MSI",
+          "PALIT","PowerColor","Sapphire","Zotac"]
+      }
+    },
+    {
+      "id": 7,
+      "text": "Какой ваш любимый производитель материнских плат?",
+      "type": "choises",
+      "data": {
+        "choises": ["Asrock","ASUS","ColorFul","Gigabyte","MSI"]
+      }
+    },
+    {
+      "id": 8,
+      "text": "Какой ваш любимый производитель процессоров?",
+      "type": "choises",
+      "data": {
+        "choises": ["AMD","Intel"]
+      }
+    },
+    {
+      "id": 1,
+      "text": "Играете ли вы в игры?",
+      "type": "plain"
+    },
+    {
+      "id": 2,
+      "text": "Вы больше создаете контент нежели смотрите/слушаете его?",
+      "type": "plain"
+    },
+    {
+      "id": 3,
+      "text": "Ваша работа больше связана с графическими приложениями нежели с офисными?",
+      "type": "plain"
+    },
+    {
+      "id": 4,
+      "text": "Занимаетесь ли вы 3Д моделированием?",
+      "type": "plain"
+    },
+    {
+      "id": 9,
+      "text": "Занимаетесь ли вы программированием?",
+      "type": "plain"
+    }
+  ],
+  "variants": [
+    {
+      "type": "videocard",
+      "compatibility": "any",
+      "product": "",
+      "vendor": "",
+      "price": 100
+    }
+  ]
+}

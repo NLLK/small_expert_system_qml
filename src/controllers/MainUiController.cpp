@@ -12,8 +12,9 @@ MainUiController::~MainUiController()
 
 QString MainUiController::filePath()
 {
-    return filePathURL.fileName();
-    //return m_filePath;
+    if (m_isFilePathOK)
+        return filePathURL.fileName();
+    return "";
 }
 
 QUrl MainUiController::getFilePathURL()
@@ -21,7 +22,6 @@ QUrl MainUiController::getFilePathURL()
     return filePathURL;
 }
 
-//TODO: return bool
 void MainUiController::setFilePath(const QString &newFilePath)
 {
     if (m_filePath == newFilePath)
@@ -32,13 +32,12 @@ void MainUiController::setFilePath(const QString &newFilePath)
     this->setIsFilePathOK(checked);
 
     if (checked){
-        filePathURL = QUrl(m_filePath);
-        if (testFileParser.parseFile(filePathURL)){
-            this->setNumberOfQuestions(testFileParser.questions());
-            this->setNumberOfVariants(testFileParser.variants());
+        if (testFileParser.parseFile()){
+            this->setDataName(testFileParser.dataName());
+            this->setNumberOfQuestions(testFileParser.questions_number());
+            this->setNumberOfVariants(testFileParser.variants_number());
         }
     }
-
 
     emit filePathChanged();
 }
@@ -80,4 +79,17 @@ void MainUiController::setNumberOfVariants(int newNumberOfVariants)
         return;
     m_numberOfVariants = newNumberOfVariants;
     emit numberOfVariantsChanged();
+}
+
+QString MainUiController::dataName() const
+{
+    return m_dataName;
+}
+
+void MainUiController::setDataName(const QString &newDataName)
+{
+    if (m_dataName == newDataName)
+        return;
+    m_dataName = newDataName;
+    emit dataNameChanged();
 }
