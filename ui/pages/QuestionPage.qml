@@ -66,6 +66,7 @@ Rectangle {
     //@disable-check M16
     Component.onCompleted: {
         questionPage.numberOfQuestions = MainUiController.numberOfQuestions
+        print(MainUiController.questionsList[0].questionText)
         questionPage.questionsData.push({'type': 0, 'text': 'test question text', 'value': 5},
                                         {'type': 1, 'text': 'test question text ranges', 'minimum': 0, 'maximum': 10},
                                         {'type': 2, 'text': 'test question text options', 'options': [{'textOption':'Op1'}, {'textOption':'Op2'}, {'textOption':'Op3'}]})

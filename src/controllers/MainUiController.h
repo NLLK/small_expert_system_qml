@@ -3,7 +3,8 @@
 
 #include <QObject>
 #include <QUrl>
-#include "../TestFileParser.h"
+#include "src/TestFileParser.h"
+#include "src/models/QuestionModel.h"
 
 class MainUiController: public QObject
 {
@@ -13,6 +14,9 @@ class MainUiController: public QObject
     Q_PROPERTY(bool isFilePathOK READ isFilePathOK WRITE setIsFilePathOK NOTIFY isFilePathOKChanged)
     Q_PROPERTY(int numberOfQuestions READ numberOfQuestions WRITE setNumberOfQuestions NOTIFY numberOfQuestionsChanged)
     Q_PROPERTY(int numberOfVariants READ numberOfVariants WRITE setNumberOfVariants NOTIFY numberOfVariantsChanged)
+
+    Q_PROPERTY(QList<QuestionModel*> questionsList READ questionsList WRITE setQuestionsList NOTIFY questionsListChanged)
+
 public:
     explicit MainUiController(QObject *parent = nullptr);
     ~MainUiController();
@@ -34,6 +38,9 @@ public:
     QString dataName() const;
     void setDataName(const QString &newDataName);
 
+    QList<QuestionModel*> questionsList();
+    void setQuestionsList(QList<QuestionModel*> newQuestionsList);
+
 signals:
     void filePathChanged();
     void isFilePathOKChanged();
@@ -41,6 +48,8 @@ signals:
     void numberOfVariantsChanged();
 
     void dataNameChanged();
+
+    void questionsListChanged();
 
 private:
     TestFileParser testFileParser;
@@ -51,6 +60,7 @@ private:
     int m_numberOfQuestions = 0;
     int m_numberOfVariants = 0;
     QString m_dataName;
+    QList<QuestionModel *> m_questionsList;
 };
 
 #endif // MAINUICONTROLLER_H

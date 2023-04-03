@@ -1,7 +1,7 @@
 #include "QuestionModel.h"
 
 QuestionModel::QuestionModel(QObject *parent)
-    : QObject{parent}
+    : QObject(parent)
 {
 
 }
@@ -30,4 +30,22 @@ void QuestionModel::setQuestionType(QuestionModel::Type newQuestionType)
         return;
     m_questionType = newQuestionType;
     emit questionTypeChanged();
+}
+
+void QuestionModel::setQuestionType(QString s_questionType)
+{
+    m_questionType = QuestionModel::stringToQuestionType(s_questionType);
+}
+
+QuestionModel::Type QuestionModel::stringToQuestionType(QString s_questionType){
+    if (s_questionType.toLower() == "plain"){
+        return QuestionModel::Type::Plain;
+    }
+    else if (s_questionType.toLower() == "ranges"){
+        return QuestionModel::Type::Ranges;
+    }
+    else if (s_questionType.toLower() == "options"){
+        return QuestionModel::Type::Options;
+    }
+    return QuestionModel::Type::Plain;
 }

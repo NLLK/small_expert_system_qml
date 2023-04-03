@@ -24,6 +24,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    src/StaticStringConstants.h \
     src/TestFileParser.h \
     src/controllers/MainUiController.h \
     src/models/QuestionModel.h

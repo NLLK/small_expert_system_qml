@@ -8,7 +8,7 @@ class QuestionModel : public QObject
     Q_OBJECT
 public:
     explicit QuestionModel(QObject *parent = nullptr);
-
+    ~QuestionModel(){};
     enum class Type {
         Plain = 0,
         Ranges = 1,
@@ -23,7 +23,9 @@ public:
 
     QuestionModel::Type questionType() const;
     void setQuestionType(QuestionModel::Type newQuestionType);
+    void setQuestionType(QString s_questionType);
 
+    static QuestionModel::Type stringToQuestionType(QString s_questionType);
 signals:
 
     void questionTextChanged();

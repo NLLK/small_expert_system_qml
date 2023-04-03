@@ -36,6 +36,7 @@ void MainUiController::setFilePath(const QString &newFilePath)
             this->setDataName(testFileParser.dataName());
             this->setNumberOfQuestions(testFileParser.questions_number());
             this->setNumberOfVariants(testFileParser.variants_number());
+            this->setQuestionsList(*testFileParser.questionsList());
         }
     }
 
@@ -92,4 +93,15 @@ void MainUiController::setDataName(const QString &newDataName)
         return;
     m_dataName = newDataName;
     emit dataNameChanged();
+}
+
+QList<QuestionModel *> MainUiController::questionsList()
+{
+    return m_questionsList;
+}
+
+void MainUiController::setQuestionsList(QList<QuestionModel *> newQuestionsList)
+{
+    m_questionsList = newQuestionsList;
+    emit questionsListChanged();
 }
