@@ -2,6 +2,7 @@
 #define QUESTIONMODEL_H
 
 #include <QObject>
+#include <QVariant>
 
 class QuestionModel : public QObject
 {
@@ -18,6 +19,12 @@ public:
     Q_PROPERTY(QString questionText READ questionText WRITE setQuestionText NOTIFY questionTextChanged)
     Q_PROPERTY(QuestionModel::Type questionType READ questionType WRITE setQuestionType NOTIFY questionTypeChanged)
 
+    Q_PROPERTY(int plainMinimum READ plainMinimum WRITE setPlainMinimum NOTIFY plainMinimumChanged)
+    Q_PROPERTY(int plainMaximum READ plainMaximum WRITE setPlainMaximum NOTIFY plainMaximumChanged)
+    Q_PROPERTY(int plainStep READ plainStep WRITE setPlainStep NOTIFY plainStepChanged)
+
+    Q_PROPERTY(QVariantList optionsOptions READ optionsOptions WRITE setOptionsOptions NOTIFY optionsOptionsChanged)
+
     QString questionText() const;
     void setQuestionText(const QString &newQuestionText);
 
@@ -25,15 +32,39 @@ public:
     void setQuestionType(QuestionModel::Type newQuestionType);
     void setQuestionType(QString s_questionType);
 
+    int plainMinimum() const;
+    void setPlainMinimum(int newPlainMinimum);
+
+    int plainMaximum() const;
+    void setPlainMaximum(int newPlainMaximum);
+
+    int plainStep() const;
+    void setPlainStep(int newPlainStep);
+
+    QVariantList optionsOptions() const;
+    void setOptionsOptions(const QVariantList &newOptionsOptions);
+
     static QuestionModel::Type stringToQuestionType(QString s_questionType);
+
 signals:
 
     void questionTextChanged();
     void questionTypeChanged();
 
+    void plainMinimumChanged();
+    void plainMaximumChanged();
+    void plainStepChanged();
+
+    void optionsOptionsChanged();
+
 private:
     QString m_questionText;
     QuestionModel::Type m_questionType;
+    int m_plainMinimum;
+    int m_plainMaximum;
+    int m_plainStep;
+    QVariantList m_optionsOptions;
+
 };
 
 #endif // QUESTIONMODEL_H

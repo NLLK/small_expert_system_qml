@@ -10,32 +10,32 @@
     {
       "id": 5,
       "text": "Какой ваш любимый вендор видеокарт?",
-      "type": "choises",
-      "data": {"choises": ["NVIDEA","AMD"]}
+      "type": "options",
+      "data": {"options": ["NVIDEA","AMD"]}
     },
     {
       "id": 6,
       "text": "Какой ваш любимый производитель видеокарт?",
-      "type": "choises",
+      "type": "options",
       "data": {
-        "choises": ["Asrock","ASUS","ColorFul","Gigabyte","Inno3D","KFA2","MSI",
+        "options": ["Asrock","ASUS","ColorFul","Gigabyte","Inno3D","KFA2","MSI",
           "PALIT","PowerColor","Sapphire","Zotac"]
       }
     },
     {
       "id": 7,
       "text": "Какой ваш любимый производитель материнских плат?",
-      "type": "choises",
+      "type": "options",
       "data": {
-        "choises": ["Asrock","ASUS","ColorFul","Gigabyte","MSI"]
+        "options": ["Asrock","ASUS","ColorFul","Gigabyte","MSI"]
       }
     },
     {
       "id": 8,
       "text": "Какой ваш любимый производитель процессоров?",
-      "type": "choises",
+      "type": "options",
       "data": {
-        "choises": ["AMD","Intel"]
+        "options": ["AMD","Intel"]
       }
     },
     {

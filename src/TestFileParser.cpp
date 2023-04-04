@@ -102,24 +102,46 @@ bool TestFileParser::parseFile()
 
 bool TestFileParser::parseQuestions(QJsonArray jsonArray)
 {
+    for (QuestionModel* model: m_questionsList){
+        delete model;
+    }
     m_questionsList.clear();
 
     for (int i = 0; i < jsonArray.count(); i++){
-       QJsonObject jObj = jsonArray[i].toObject();
-       int _id = -1;
-       try {
-           _id = jObj[StaticStringConstants::FileParser::jobj_question_text].toInt(0);
-       } catch (...) {
+        QuestionModel *model = new QuestionModel;
+        QJsonObject jObj = jsonArray[i].toObject();
+        int _id = -1;
+        try {
+            _id = jObj[StaticStringConstants::FileParser::jobj_question_text].toInt(0);
+        } catch (...) {
+            printf("Error in question field \"id\". Question index is %d\n", i);
+            return false;
+        }
 
-       }
+        QString _text = jObj[StaticStringConstants::FileParser::jobj_question_text].toString(StaticStringConstants::FileParser::jobj_question_text_default);
+        QString _type = jObj[StaticStringConstants::FileParser::jobj_question_type].toString(StaticStringConstants::FileParser::jobj_question_type_default);
 
-       QString _text = jObj[StaticStringConstants::FileParser::jobj_question_text].toString(StaticStringConstants::FileParser::jobj_question_text_default);
-       QString _type = jObj[StaticStringConstants::FileParser::jobj_question_type].toString(StaticStringConstants::FileParser::jobj_question_type_default);
-       QuestionModel *model = new QuestionModel;
+        model->setQuestionText(_text);
+        model->setQuestionType(_type);
 
-       model->setQuestionText(_text);
-       model->setQuestionType(_type);
-       m_questionsList.append(model);
+        if (jObj.keys().contains(StaticStringConstants::FileParser::jobj_question_data)){
+            QJsonObject jObjData = jObj[StaticStringConstants::FileParser::jobj_question_data].toObject();
+            if (model->questionType() == QuestionModel::Type::Options){
+                QJsonArray _jArrayOptions = jObjData[StaticStringConstants::FileParser::jobj_question_data_options].toArray();
+                if (_jArrayOptions.count() == 0){
+                    printf("Error in options array. It is empty. Question index is %d\n", i);
+                    return false;
+                }
+                QVariantList _options = _jArrayOptions.toVariantList();
+                model->setOptionsOptions(_options);
+            }
+
+        }
+
+
+
+
+        m_questionsList.append(model);
     }
 
     return true;

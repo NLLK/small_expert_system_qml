@@ -49,3 +49,55 @@ QuestionModel::Type QuestionModel::stringToQuestionType(QString s_questionType){
     }
     return QuestionModel::Type::Plain;
 }
+
+int QuestionModel::plainMinimum() const
+{
+    return m_plainMinimum;
+}
+
+void QuestionModel::setPlainMinimum(int newPlainMinimum)
+{
+    if (m_plainMinimum == newPlainMinimum)
+        return;
+    m_plainMinimum = newPlainMinimum;
+    emit plainMinimumChanged();
+}
+
+int QuestionModel::plainMaximum() const
+{
+    return m_plainMaximum;
+}
+
+void QuestionModel::setPlainMaximum(int newPlainMaximum)
+{
+    if (m_plainMaximum == newPlainMaximum)
+        return;
+    m_plainMaximum = newPlainMaximum;
+    emit plainMaximumChanged();
+}
+
+QVariantList QuestionModel::optionsOptions() const
+{
+    return m_optionsOptions;
+}
+
+void QuestionModel::setOptionsOptions(const QVariantList &newOptionsOptions)
+{
+    if (m_optionsOptions == newOptionsOptions)
+        return;
+    m_optionsOptions = newOptionsOptions;
+    emit optionsOptionsChanged();
+}
+
+int QuestionModel::plainStep() const
+{
+    return m_plainStep;
+}
+
+void QuestionModel::setPlainStep(int newPlainStep)
+{
+    if (m_plainStep == newPlainStep)
+        return;
+    m_plainStep = newPlainStep;
+    emit plainStepChanged();
+}

@@ -24,8 +24,12 @@ public:
         static inline QString jobj_question_type = "type";
         static inline QString jobj_question_type_default = "plain";
 
+        static inline QString jobj_question_data = "data";
+        static inline QString jobj_question_data_options = "options";
+        static inline QString jobj_question_data_minimum = "minimum";
+        static inline QString jobj_question_data_maximum = "maximum";
 
-
+        //Other constants
         static inline QString dataName_fileParsing_error = "Ошибка в парсинге файла";
 
     };

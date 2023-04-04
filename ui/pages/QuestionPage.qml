@@ -22,25 +22,37 @@ Rectangle {
         }
     }
 
+    function createOptionsList(data){
+        let outputArray = []
+        data.forEach(element => {
+            outputArray.push(
+                             {
+                                "textOption": element
+                             }
+            )
+        });
+        return outputArray
+    }
+
     function loadFieldsFromData(iter){
         let data = questionsData[iter]
 
-        if (data.type === QuestionField.Type.Plain ||
-            data.type === QuestionField.Type.Ranges ||
-            data.type === QuestionField.Type.Options)
+        if (data.questionType === QuestionField.Type.Plain ||
+            data.questionType === QuestionField.Type.Ranges ||
+            data.questionType === QuestionField.Type.Options)
         {
             qField.value = 0
-            qField.type = data.type
-            questionPage.questionText = data.text
+            qField.type = data.questionType
+            questionPage.questionText = data.questionText
         }
 
-        switch (data.type){
-        case QuestionField.Type.Plain:{
+        switch (qField.type){
+        case QuestionField.Type.Ranges:{
             qField.width = 350
             qField.height = 90
             break;
         }
-        case QuestionField.Type.Ranges:{
+        case QuestionField.Type.Plain:{
             qField.width = 600
             qField.height = 300
             qField.minimum = data.minimum
@@ -52,7 +64,7 @@ Rectangle {
             qField.width = 600
             qField.height = 300
             qField.optionsListModel.clear()
-            qField.optionsListModel.append(data.options)
+            qField.optionsListModel.append(questionPage.createOptionsList(data.optionsOptions))
             break;
         }
         }
@@ -66,11 +78,15 @@ Rectangle {
     //@disable-check M16
     Component.onCompleted: {
         questionPage.numberOfQuestions = MainUiController.numberOfQuestions
-        print(MainUiController.questionsList[0].questionText)
-        questionPage.questionsData.push({'type': 0, 'text': 'test question text', 'value': 5},
-                                        {'type': 1, 'text': 'test question text ranges', 'minimum': 0, 'maximum': 10},
-                                        {'type': 2, 'text': 'test question text options', 'options': [{'textOption':'Op1'}, {'textOption':'Op2'}, {'textOption':'Op3'}]})
-        questionPage.loadFieldsFromData(0)
+//        print(MainUiController.questionsList[0].questionText)
+        if  (questionPage.numberOfQuestions > 0){
+            questionPage.questionsData = MainUiController.questionsList
+            questionPage.loadFieldsFromData(0)
+        }
+        //.push({'type': 0, 'text': 'test question text', 'value': 5},
+        //{'type': 1, 'text': 'test question text ranges', 'minimum': 0, 'maximum': 10},
+        //{'type': 2, 'text': 'test question text options', 'options': [{'textOption':'Op1'}, {'textOption':'Op2'}, {'textOption':'Op3'}]})
+
 
     }
     CustomButton {
@@ -85,7 +101,7 @@ Rectangle {
         width: 600
         height: 300
         anchors.centerIn: parent
-        type: QuestionField.Type.Ranges
+        type: QuestionField.Type.Plain
         onValueChanged: questionPage.setAnswerForQuestion(this.value)
     }
     Text{

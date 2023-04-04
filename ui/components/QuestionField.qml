@@ -15,7 +15,7 @@ Item {
     property real minimum: 0
     property real maximum: 10
     onValueChanged: {
-        if (type === QuestionField.Type.Ranges){
+        if (type === QuestionField.Type.plain){
             console.log('value', value)
         }
     }
@@ -36,7 +36,7 @@ Item {
         }
     }
     Component{
-        id: plainComponent
+        id: rangesComponent
         Rectangle{
             color: "#8053a2ff"
             radius: 15
@@ -62,13 +62,13 @@ Item {
     }
 
     Component{
-        id: rangesComponent
+        id: plainComponent
         Item{
-            visible: questionField.type === QuestionField.Type.Ranges
+            visible: questionField.type === QuestionField.Type.Plain
             anchors.fill: parent
             implicitWidth: 500
             Rectangle{
-                id: rangesRectangle
+                id: plainRectangle
                 border.color: "#8053a2ff"
                 border.width: 5
                 radius: 15
@@ -79,7 +79,7 @@ Item {
                 implicitHeight: 90
 
                 TextField {
-                    id: rangesTextField
+                    id: plainTextField
 
                     placeholderText: "0"
                     text: questionField.value + ''
@@ -97,7 +97,7 @@ Item {
                         else
                             if (!isNaN(value)){
                                 questionField.value = parseFloat(text)
-                                rangesSliderPill.x = rangesSlider.setValue(questionField.value)
+                                plainSliderPill.x = plainSlider.setValue(questionField.value)
                             }
                     }
 
@@ -108,12 +108,12 @@ Item {
                     horizontalAlignment: TextInput.AlignHCenter
                 }
                 Text{
-                    anchors.top: rangesTextField.bottom
+                    anchors.top: plainTextField.bottom
                     anchors.topMargin: 5
                 }
             }
             Item {
-                id: rangesSlider
+                id: plainSlider
 
                 property double maximum: 10
                 property double minimum:  0
@@ -121,13 +121,13 @@ Item {
                 implicitWidth: 500
                 height: 100
 
-                anchors.top: rangesRectangle.bottom
-                anchors.horizontalCenter: rangesRectangle.horizontalCenter
+                anchors.top: plainRectangle.bottom
+                anchors.horizontalCenter: plainRectangle.horizontalCenter
                 anchors.topMargin: 30
 
                 Rectangle {
-                    id: rangesSliderLine
-                    width: rangesSlider.width
+                    id: plainSliderLine
+                    width: plainSlider.width
                     height: 4
                     radius: 0.5 * height
                     color: 'black'
@@ -136,21 +136,21 @@ Item {
 
                 readonly property real dotWidth: 15
                 Repeater{//dots
-                    id: rangesSliderDotsRepeater
+                    id: plainSliderDotsRepeater
                     model: 5
                     delegate:
                         Rectangle {
-                            x:  ((rangesSliderLine.width) / (rangesSliderDotsRepeater.model-1)) * index - rangesSlider.dotWidth/2
-                            width: rangesSlider.dotWidth;  height: width
+                            x:  ((plainSliderLine.width) / (plainSliderDotsRepeater.model-1)) * index - plainSlider.dotWidth/2
+                            width: plainSlider.dotWidth;  height: width
                             radius: 0.5 * height
                             anchors.verticalCenter: parent.verticalCenter
                             color: '#53A2FF'
                         }
                 }
                 Rectangle {
-                    id: rangesSliderPill
+                    id: plainSliderPill
 
-                    x: rangesSlider.setValue(questionField.value)// pixels from value
+                    x: plainSlider.setValue(questionField.value)// pixels from value
                     width: 30;  height: width
                     border.width: 3
                     radius: 0.5 * height
@@ -161,63 +161,63 @@ Item {
 
                 MouseArea {
                     id: mouseArea
-                    readonly property int marginArea: rangesSliderPill.height
-                    width: rangesSliderLine.width
-                    height: rangesSliderLine.height + marginArea
-                    y: rangesSliderLine.y - marginArea/2
+                    readonly property int marginArea: plainSliderPill.height
+                    width: plainSliderLine.width
+                    height: plainSliderLine.height + marginArea
+                    y: plainSliderLine.y - marginArea/2
 
                     drag {
-                        target:   rangesSliderPill
+                        target:   plainSliderPill
                         axis:     Drag.XAxis
-                        maximumX: rangesSliderLine.width - rangesSliderPill.width/2
-                        minimumX: -rangesSliderPill.width/2
+                        maximumX: plainSliderLine.width - plainSliderPill.width/2
+                        minimumX: -plainSliderPill.width/2
                     }
 
-                    onPositionChanged:  if(drag.active) rangesSlider.setPixels(rangesSliderPill.x) // drag pill
+                    onPositionChanged:  if(drag.active) plainSlider.setPixels(plainSliderPill.x) // drag pill
                     onClicked:{
-                        rangesSlider.setPixels(mouseArea.mouseX - rangesSliderPill.width/2);
-                        rangesSliderPill.x = mouseArea.mouseX - rangesSliderPill.width/2
+                        plainSlider.setPixels(mouseArea.mouseX - plainSliderPill.width/2);
+                        plainSliderPill.x = mouseArea.mouseX - plainSliderPill.width/2
                     }
                 }
 
                 function setValue(__value){
-                    return ((rangesSliderLine.width)/(maximum - minimum))*(__value - minimum) - rangesSliderPill.width/2
+                    return ((plainSliderLine.width)/(maximum - minimum))*(__value - minimum) - plainSliderPill.width/2
                 }
 
                 function setPixels(pixels) {
-                    var value = ((maximum - minimum) / (rangesSliderLine.width)) * (pixels + rangesSliderPill.width/2) + minimum  // value from pixels
+                    var value = ((maximum - minimum) / (plainSliderLine.width)) * (pixels + plainSliderPill.width/2) + minimum  // value from pixels
                     if (value > maximum) value = maximum
                     if (value < minimum) value = minimum
                     questionField.value = value.toFixed(2)
-                    rangesTextField.text = questionField.value.toString()
-                    rangesTextField.focus = false
+                    plainTextField.text = questionField.value.toString()
+                    plainTextField.focus = false
                 }
 
                 Text {
-                    id: rangesSliderMinimumLabel
+                    id: plainSliderMinimumLabel
                     text: 'Нет'
-                    anchors.horizontalCenter: rangesSliderLine.left
-                    anchors.top: rangesSliderLine.bottom
+                    anchors.horizontalCenter: plainSliderLine.left
+                    anchors.top: plainSliderLine.bottom
                     anchors.topMargin: 15
                     font.family: 'Inter'
                     font.pixelSize: 32
                     color: "black"
                 }
                 Text {
-                    id: rangesSliderIntermediateLabel
+                    id: plainSliderIntermediateLabel
                     text: 'Наверное'
-                    anchors.horizontalCenter: rangesSliderLine.horizontalCenter
-                    anchors.top: rangesSliderLine.bottom
+                    anchors.horizontalCenter: plainSliderLine.horizontalCenter
+                    anchors.top: plainSliderLine.bottom
                     anchors.topMargin: 15
                     font.family: 'Inter'
                     font.pixelSize: 32
                     color: "black"
                 }
                 Text {
-                    id: rangesSliderMaximumLabel
+                    id: plainSliderMaximumLabel
                     text: 'Да'
-                    anchors.horizontalCenter: rangesSliderLine.right
-                    anchors.top: rangesSliderLine.bottom
+                    anchors.horizontalCenter: plainSliderLine.right
+                    anchors.top: plainSliderLine.bottom
                     anchors.topMargin: 15
                     font.family: 'Inter'
                     font.pixelSize: 32
