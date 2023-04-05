@@ -18,6 +18,7 @@ public:
 
     Q_PROPERTY(QString questionText READ questionText WRITE setQuestionText NOTIFY questionTextChanged)
     Q_PROPERTY(QuestionModel::Type questionType READ questionType WRITE setQuestionType NOTIFY questionTypeChanged)
+    Q_PROPERTY(double value READ value WRITE setValue NOTIFY valueChanged)
 
     Q_PROPERTY(int plainMinimum READ plainMinimum WRITE setPlainMinimum NOTIFY plainMinimumChanged)
     Q_PROPERTY(int plainMaximum READ plainMaximum WRITE setPlainMaximum NOTIFY plainMaximumChanged)
@@ -46,6 +47,9 @@ public:
 
     static QuestionModel::Type stringToQuestionType(QString s_questionType);
 
+    double value() const;
+    void setValue(double newValue);
+
 signals:
 
     void questionTextChanged();
@@ -57,14 +61,19 @@ signals:
 
     void optionsOptionsChanged();
 
+    void valueChanged();
+
 private:
     QString m_questionText;
     QuestionModel::Type m_questionType;
-    int m_plainMinimum;
-    int m_plainMaximum;
+    int m_plainMinimum = 0;
+    int m_plainMaximum = 10;
     int m_plainStep;
     QVariantList m_optionsOptions;
+    double m_value = 0;
+    double m_relative_value = 0;
 
+    double valueToRelativeValue(double value);
 };
 
 #endif // QUESTIONMODEL_H

@@ -1,5 +1,5 @@
 #include "QuestionModel.h"
-
+#include <QDebug>
 QuestionModel::QuestionModel(QObject *parent)
     : QObject(parent)
 {
@@ -100,4 +100,41 @@ void QuestionModel::setPlainStep(int newPlainStep)
         return;
     m_plainStep = newPlainStep;
     emit plainStepChanged();
+}
+
+double QuestionModel::value() const
+{
+    return m_value;
+}
+
+void QuestionModel::setValue(double newValue)
+{
+    if (qFuzzyCompare(m_value, newValue))
+        return;
+    m_value = newValue;
+    m_relative_value = valueToRelativeValue(m_value);
+    qDebug() << m_relative_value;
+    emit valueChanged();
+}
+
+double QuestionModel::valueToRelativeValue(double value)
+{
+    double res = 0;
+
+    switch(this->m_questionType){
+        case Type::Options:{
+            res = value;//TODO: figure out what to do with it
+            break;
+        }
+        case Type::Plain:{
+            res = value / (m_plainMaximum - m_plainMinimum);
+            break;
+        }
+        case Type::Ranges:{
+            res = value;//TODO: and it
+            break;
+        }
+    }
+
+    return res;
 }

@@ -55,9 +55,9 @@ Rectangle {
         case QuestionField.Type.Plain:{
             qField.width = 600
             qField.height = 300
-            qField.minimum = data.minimum
-            qField.maximum = data.maximum
-            qField.value = (data.maximum + data.minimum) / 2
+            qField.minimum = data.plainMinimum
+            qField.maximum = data.plainMaximum
+            qField.value = (qField.maximum + qField.minimum) / 2
             break;
         }
         case QuestionField.Type.Options:{
@@ -71,7 +71,7 @@ Rectangle {
     }
 
     function setAnswerForQuestion(value){
-        console.log('answer',questionPage.questionIterator, value)
+        //console.log('answer',questionPage.questionIterator, value)
         questionsData[questionIterator].value = value
     }
 
