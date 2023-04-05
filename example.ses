@@ -1,76 +1,635 @@
 {
-  "name": "Выбор ПК",
-  "questions": [
-    {
-      "id": 0,
-      "text": "Ваш бюджет:",
-      "type": "ranges",
-      "data": {"from": 10000,"to": 300000,"step": 5000}
-    },
-    {
-      "id": 5,
-      "text": "Какой ваш любимый вендор видеокарт?",
-      "type": "options",
-      "data": {"options": ["NVIDEA","AMD"]}
-    },
-    {
-      "id": 6,
-      "text": "Какой ваш любимый производитель видеокарт?",
-      "type": "options",
-      "data": {
-        "options": ["Asrock","ASUS","ColorFul","Gigabyte","Inno3D","KFA2","MSI",
-          "PALIT","PowerColor","Sapphire","Zotac"]
-      }
-    },
-    {
-      "id": 7,
-      "text": "Какой ваш любимый производитель материнских плат?",
-      "type": "options",
-      "data": {
-        "options": ["Asrock","ASUS","ColorFul","Gigabyte","MSI"]
-      }
-    },
-    {
-      "id": 8,
-      "text": "Какой ваш любимый производитель процессоров?",
-      "type": "options",
-      "data": {
-        "options": ["AMD","Intel"]
-      }
-    },
-    {
-      "id": 1,
-      "text": "Играете ли вы в игры?",
-      "type": "plain"
-    },
-    {
-      "id": 2,
-      "text": "Вы больше создаете контент нежели смотрите/слушаете его?",
-      "type": "plain"
-    },
-    {
-      "id": 3,
-      "text": "Ваша работа больше связана с графическими приложениями нежели с офисными?",
-      "type": "plain"
-    },
-    {
-      "id": 4,
-      "text": "Занимаетесь ли вы 3Д моделированием?",
-      "type": "plain"
-    },
-    {
-      "id": 9,
-      "text": "Занимаетесь ли вы программированием?",
-      "type": "plain"
-    }
-  ],
-  "variants": [
-    {
-      "type": "videocard",
-      "compatibility": "any",
-      "product": "",
-      "vendor": "",
-      "price": 100
-    }
-  ]
+    "name": "Выбор ПК",
+    "questions": [
+        {
+            "id": 0,
+            "text": "Ваш бюджет:",
+            "type": "ranges",
+            "data": {
+                "from": 10000,
+                "to": 300000,
+                "step": 5000
+            }
+        },
+        {
+            "id": 5,
+            "text": "Какой ваш любимый вендор видеокарт?",
+            "type": "options",
+            "data": {
+                "options": [
+                    "NVIDIA",
+                    "AMD"
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "text": "Какой ваш любимый производитель видеокарт?",
+            "type": "options",
+            "data": {
+                "options": [
+                    "Asrock",
+                    "ASUS",
+                    "ColorFul",
+                    "Gigabyte",
+                    "Inno3D",
+                    "KFA2",
+                    "MSI",
+                    "PALIT",
+                    "PowerColor",
+                    "Sapphire",
+                    "Zotac"
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "text": "Какой ваш любимый производитель материнских плат?",
+            "type": "options",
+            "data": {
+                "options": [
+                    "Asrock",
+                    "ASUS",
+                    "ColorFul",
+                    "Gigabyte",
+                    "MSI"
+                ]
+            }
+        },
+        {
+            "id": 8,
+            "text": "Какой ваш любимый производитель процессоров?",
+            "type": "options",
+            "data": {
+                "options": [
+                    "AMD",
+                    "Intel"
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "text": "Играете ли вы в игры?",
+            "type": "plain"
+        },
+        {
+            "id": 2,
+            "text": "Вы больше создаете контент нежели смотрите/слушаете его?",
+            "type": "plain"
+        },
+        {
+            "id": 3,
+            "text": "Ваша работа больше связана с графическими приложениями нежели с офисными?",
+            "type": "plain"
+        },
+        {
+            "id": 4,
+            "text": "Занимаетесь ли вы 3Д моделированием?",
+            "type": "plain"
+        },
+        {
+            "id": 9,
+            "text": "Занимаетесь ли вы программированием?",
+            "type": "plain"
+        }
+    ],
+    "variants": [
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "Palit GeForce RTX 3070 Ti GamingPro NED307T019P2-1046A",
+            "vendor": "Palit",
+            "side": "NVIDIA",
+            "price": 60000
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "Gigabyte GeForce RTX 4090 GAMING OC GV-N4090GAMING OC-24GD",
+            "vendor": "Gigabyte",
+            "price": 152000,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "MSI GeForce 210 N210-1GD3LP",
+            "vendor": "MSI",
+            "price": 3290,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "MSI GeForce GT 710 Silent LP GT 710 2GD3H LP",
+            "vendor": "MSI",
+            "price": 3990,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "PowerColor AMD Radeon R7 240 AXR7 240 2GBD5-HL/V2",
+            "vendor": "PowerColor",
+            "price": 4990,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "Gigabyte GeForce GT 710 LP GV-N710D5-2GL",
+            "vendor": "Gigabyte",
+            "price": 3990,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "Palit GeForce GT 1030 NEC103000646-1082F",
+            "vendor": "Palit",
+            "price": 6590,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "ASUS GeForce GT 730 GT730-4H-SL-2GD5",
+            "vendor": "ASUS",
+            "price": 7490,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "Gigabyte GeForce GT 1030 GV-N1030SL-2GL",
+            "vendor": "Gigabyte",
+            "price": 8290,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "PowerColor AMD Radeon RX 550 Red Dragon LP AXRX 550 4GBD5-HLE",
+            "vendor": "PowerColor",
+            "price": 12690,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "Sapphire AMD Radeon RX 550 Pulse OC 11268-01-20G",
+            "vendor": "Sapphire",
+            "price": 10490,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "MSI AMD Radeon RX 550 AERO ITX OC ZT 70302-10P RX 550 AERO ITX 4G OC",
+            "vendor": "MSI",
+            "price": 14990,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "ASUS Dual Radeon RX 560 DUAL-RX560-4G",
+            "vendor": "ASUS",
+            "price": 14990,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "MSI Radeon RX 6400 Aero ITX RX 6400 Aero ITX 4G",
+            "vendor": "MSI",
+            "price": 17990,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "ASUS NVIDIA GeForce GTX 1050 Ti CERBERUS-GTX1050TI-A4G",
+            "vendor": "ASUS",
+            "price": 16990,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "memory",
+            "compatibility": "DDR4",
+            "product": "Corsair Vengeance LPX 16GB (2 x 8GB) DDR4 DRAM 3200MHz C16 Memory Kit - Black",
+            "vendor": "Corsair",
+            "price": 6990
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "MSI GeForce GTX 1660 Super VENTUS XS OC",
+            "vendor": "MSI",
+            "price": 27990,
+            "side": "Nvidia"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "Gigabyte GeForce GTX 1650 OC Low Profile GV-N1650OC-4GL",
+            "vendor": "Gigabyte",
+            "price": 15990,
+            "side": "Nvidia"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "ZOTAC GAMING GeForce GTX 1050 Ti Mini ZT-P10510A-10L",
+            "vendor": "ZOTAC",
+            "price": 12990,
+            "side": "Nvidia"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "ASRock Radeon RX 5500 XT Challenger D 8G OC",
+            "vendor": "ASRock",
+            "price": 25990,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "MSI GeForce GT 1030 2GH LP OC",
+            "vendor": "MSI",
+            "price": 8490,
+            "side": "Nvidia"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "PowerColor Radeon RX 6600 XT Fighter AXRX 6600XT 8GBD6-3DHR/OC",
+            "vendor": "PowerColor",
+            "price": 39990,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "GIGABYTE GeForce RTX 3070 GAMING OC 8G",
+            "vendor": "GIGABYTE",
+            "price": 41333.33,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "MSI Radeon RX 6900 XT GAMING X TRIO 16G",
+            "vendor": "MSI",
+            "price": 70800,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "ASUS TUF Gaming GeForce RTX 3080 OC 10G",
+            "vendor": "ASUS",
+            "price": 51666.67,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "Sapphire Nitro+ Radeon RX 6800 XT 16G",
+            "vendor": "Sapphire",
+            "price": 61800,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "EVGA GeForce RTX 3090 FTW3 ULTRA GAMING 24G-P5-3987-KR",
+            "vendor": "EVGA",
+            "price": 76000,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "ASUS GeForce GTX 1660 TUF-GTX1660-O6G-GAMING",
+            "vendor": "ASUS",
+            "price": 19990,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "GIGABYTE Radeon RX 580 GAMING GV-RX580GAMING-8GD",
+            "vendor": "GIGABYTE",
+            "price": 18990,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "MSI GeForce GTX 1650 GAMING X 4G",
+            "vendor": "MSI",
+            "price": 14990,
+            "side": "NVIDIA"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "SAPPHIRE PULSE Radeon RX 5700 XT 11293-01-20G",
+            "vendor": "SAPPHIRE",
+            "price": 36990,
+            "side": "AMD"
+        },
+        {
+            "type": "videocard",
+            "compatibility": "any",
+            "product": "ASRock Phantom Gaming D Radeon RX 5500 XT PGD Radeon RX5500XT 8G OC",
+            "vendor": "ASRock",
+            "price": 21990,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA 1151",
+            "product": "Intel Core i9-9900K",
+            "vendor": "Intel",
+            "price": 23990,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Ryzen 7 3700X",
+            "vendor": "AMD",
+            "price": 18990,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA 1151",
+            "product": "Intel Core i7-9700K",
+            "vendor": "Intel",
+            "price": 16990,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Ryzen 5 5600X",
+            "vendor": "AMD",
+            "price": 13990,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA 1200",
+            "product": "Intel Core i5-10600K",
+            "vendor": "Intel",
+            "price": 11990,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA1151",
+            "product": "Intel Pentium Gold G5420",
+            "vendor": "Intel",
+            "price": 4490,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Ryzen 3 1200",
+            "vendor": "AMD",
+            "price": 3890,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA1151",
+            "product": "Intel Celeron G3930",
+            "vendor": "Intel",
+            "price": 2690,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD A4-6300",
+            "vendor": "AMD",
+            "price": 1990,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Athlon 3000G",
+            "vendor": "AMD",
+            "price": 3990,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA1151",
+            "product": "Intel Pentium Gold G5400",
+            "vendor": "Intel",
+            "price": 3690,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD A8-9600",
+            "vendor": "AMD",
+            "price": 3490,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA1151",
+            "product": "Intel Celeron G4920",
+            "vendor": "Intel",
+            "price": 2990,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD A6-9500",
+            "vendor": "AMD",
+            "price": 2690,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Ryzen 5 5600X",
+            "vendor": "AMD",
+            "price": 20000,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA1200",
+            "product": "Intel Core i5-11600K",
+            "vendor": "Intel",
+            "price": 17000,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Ryzen 5 3600X",
+            "vendor": "AMD",
+            "price": 13000,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA1151",
+            "product": "Intel Core i7-9700K",
+            "vendor": "Intel",
+            "price": 15000,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Ryzen 7 3800X",
+            "vendor": "AMD",
+            "price": 19000,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA 1200",
+            "product": "Intel Core i5-10400",
+            "vendor": "Intel",
+            "price": 11500,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Ryzen 5 3600",
+            "vendor": "AMD",
+            "price": 13500,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA 1151",
+            "product": "Intel Core i5-9600K",
+            "vendor": "Intel",
+            "price": 13900,
+            "side": "Intel"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "AM4",
+            "product": "AMD Ryzen 5 5600X",
+            "vendor": "AMD",
+            "price": 18000,
+            "side": "AMD"
+        },
+        {
+            "type": "CPU",
+            "compatibility": "LGA 1151",
+            "product": "Intel Core i7-9700K",
+            "vendor": "Intel",
+            "price": 21000,
+            "side": "Intel"
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Corsair Vengeance RGB Pro 32GB (2x16GB) DDR4 3600",
+            "price": 13990
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "G.Skill Trident Z Royal Silver 16GB (2x8GB) DDR4 3600",
+            "price": 8990
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Teamgroup T-Force Delta RGB 32GB (2x16GB) DDR4 3200",
+            "price": 11990
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Crucial Ballistix RGB 16GB (2x8GB) DDR4 3200",
+            "price": 5990
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Kingston HyperX Predator RGB 64GB (4x16GB) DDR4 3600",
+            "price": 29990
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Corsair Vengeance LPX 16GB (2 x 8GB) DDR4 3200 (PC4-25600) C16 1.35V Desktop Memory - Black",
+            "price": 5499
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "G.Skill TridentZ RGB Series 16GB (2 x 8GB) DDR4 3200MHz DIMM CAS 16 F4-3200C16D-16GTZR",
+            "price": 5690
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Crucial Ballistix RGB 16GB (2 x 8GB) DDR4 3200 (PC4-25600) CL16 SR x8 Unbuffered DIMM 288-Pin Desktop Gaming Memory BL2K8G32C16U4BL",
+            "price": 5299
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Kingston HyperX Fury RGB 16GB (2 x 8GB) DDR4 3200MHz CL16 DIMM XMP Desktop Memory HX432C16FB3AK2/16",
+            "price": 5490
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Patriot Viper Steel Series 16GB (2 x 8GB) DDR4 3200MHz DIMM CAS 16 PVS416G320C6K",
+            "price": 5190
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Kingston HyperX FURY 4GB DDR3 1600MHz CL10",
+            "price": 1499
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Crucial 4GB DDR4 2400MHz CL17 DIMM",
+            "price": 1699
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "ADATA Premier 4GB DDR4 2400MHz CL17 DIMM",
+            "price": 1599
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "Corsair Value Select 4GB DDR4 2133MHz CL15 DIMM",
+            "price": 1799
+        },
+        {
+            "type": "memory",
+            "compatibility": "any",
+            "product": "G.Skill Aegis 4GB DDR4 2400MHz CL15 DIMM",
+            "price": 1599
+        }
+    ]
 }
