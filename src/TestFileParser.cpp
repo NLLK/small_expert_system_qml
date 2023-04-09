@@ -117,7 +117,7 @@ bool TestFileParser::parseQuestions(QJsonArray jsonArray)
         QJsonObject jObj = jsonArray[i].toObject();
         int _id = -1;
         try {
-            _id = jObj[StaticStringConstants::FileParser::jobj_question_text].toInt(0);
+            _id = jObj[StaticStringConstants::FileParser::jobj_question_id].toInt();
         } catch (...) {
             printf("Error in question field \"id\". Question index is %d\n", i);
             return false; //TODO: mem leak

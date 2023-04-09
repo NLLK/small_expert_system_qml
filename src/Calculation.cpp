@@ -51,12 +51,11 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
     //0: need low/mid/high-perfomance pc
     //3: budget low/mid/high
     //6: side (for non cpu or video - 0.5)
-    //8: firm (for special one - 0.95; other - 0.5)
+    //8: vendor (for special one - 0.95; other - 0.5)
 
     ComputerPart* model = variant->part();
 
     QList<Variant::Propability*>* p_list = new QList<Variant::Propability*>;
-    variant->setPropabilitiesList(*p_list);
 
     //perfomance
     ComputerPart::Perfomance _perfomance = model->perfomance();
@@ -72,7 +71,7 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
     p_list->append(createPropabilityPointer(_budget == ComputerPart::Budget::Middle ? 0.95f : 0.05));
     p_list->append(createPropabilityPointer(_budget == ComputerPart::Budget::High   ? 0.95f : 0.05));
 
-    //side (like amd or not?)
+    //side (like amd or not?) and vendor
     switch(model->type()){
         case ComputerPart::Type::CPU:
         {
@@ -92,10 +91,10 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
             }
 
             QVariantList optionsForVideocard = foundQuestion->optionsOptions();
-            QString _vendor = model->vendor();
+            QString _vendor = model->vendor().toLower();
 
             for(QVariant variable : optionsForVideocard){
-                p_list->append(createPropabilityPointer(variable.toString() == _vendor ? 0.95f : 0.05));
+                p_list->append(createPropabilityPointer(variable.toString().toLower() == _vendor ? 0.95f : 0.05));
             }
             break;
         }
@@ -111,10 +110,10 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
                 }
 
                 QVariantList optionsForMotherboard = foundQuestion->optionsOptions();
-                QString _vendor = model->vendor();
+                QString _vendor = model->vendor().toLower();
 
                 for(QVariant variable : optionsForMotherboard){
-                    p_list->append(createPropabilityPointer(variable.toString() == _vendor ? 0.95f : 0.05));
+                    p_list->append(createPropabilityPointer(variable.toString().toLower() == _vendor ? 0.95f : 0.05));
                 }
             }
 
@@ -122,7 +121,7 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
         }
     }
 
-    //
+    variant->setPropabilitiesList(*p_list);
 }
 
 void Calculation::smallExpertSystemAlgorithm()
