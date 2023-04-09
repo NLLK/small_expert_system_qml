@@ -84,7 +84,7 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
             p_list->append(createPropabilityPointer(model->side().toUpper() == "AMD" ? 0.95f: 0.05f));
             p_list->append(createPropabilityPointer(model->side().toUpper() == "NVIDIA" ? 0.95f: 0.05f));
 
-            auto itr = std::find_if(m_questionsList.begin(), m_questionsList.end(), [](QuestionModel* someclass) { return someclass->id() == 6; });
+            auto itr = std::find_if(m_questionsList.begin(), m_questionsList.end(), [](QuestionModel* someclass) { return someclass->id() == QuestionModel::Tags::videocard_vendor; });
             QuestionModel* foundQuestion = (*itr);
             if(itr == m_questionsList.end()) {
                 printf("ERROR. There is no question with id 6");
@@ -103,7 +103,7 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
             p_list->append(createPropabilityPointer(0.5f));//nvidia / intel
 
             if (model->type() == ComputerPart::Type::Motherboard){
-                auto itr = std::find_if(m_questionsList.begin(), m_questionsList.end(), [](QuestionModel* someclass) { return someclass->id() == 7; });
+                auto itr = std::find_if(m_questionsList.begin(), m_questionsList.end(), [](QuestionModel* someclass) { return someclass->id() == QuestionModel::Tags::motherboard_vendor; });
                 QuestionModel* foundQuestion = (*itr);
                 if(itr == m_questionsList.end()) {
                     printf("ERROR. There is no question with id 6");

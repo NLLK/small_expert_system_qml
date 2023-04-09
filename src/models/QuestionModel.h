@@ -16,6 +16,17 @@ public:
         Options = 2
     };
 
+    class Tags{
+    public:
+        static inline int budget = 50;
+        static inline int videocard_side= 51;
+        static inline int videocard_vendor = 106;
+        static inline int motherboard_vendor = 107;
+        static inline int cpu_vendor = 52;
+        static inline int perfomance_from = 1;
+        static inline int perfomance_to = 49;
+    };
+
     Q_PROPERTY(QString questionText READ questionText WRITE setQuestionText NOTIFY questionTextChanged)
     Q_PROPERTY(QuestionModel::Type questionType READ questionType WRITE setQuestionType NOTIFY questionTypeChanged)
     Q_PROPERTY(double value READ value WRITE setValue NOTIFY valueChanged)

@@ -130,22 +130,11 @@ void QuestionModel::setId(int newId)
 
 double QuestionModel::valueToRelativeValue(double value)
 {
-    double res = 0;
+    double res = value;
 
-    switch(this->m_questionType){
-        case Type::Options:{
-            res = value;//TODO: figure out what to do with it
-            break;
-        }
-        case Type::Plain:{
-            res = value / (m_plainMaximum - m_plainMinimum);
-            break;
-        }
-        case Type::Ranges:{
-            res = value;//TODO: and it
-            break;
-        }
+    if (this->m_questionType == Type::Plain){
+        res = value / (m_plainMaximum - m_plainMinimum);
     }
-
     return res;
+
 }

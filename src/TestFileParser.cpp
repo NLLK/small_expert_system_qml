@@ -85,9 +85,7 @@ bool TestFileParser::parseFile()
                 }
                 else isFileOk = false;
             }
-
         }
-
     }
     if (!isFileOk){
         m_dataName = StaticStringConstants::FileParser::dataName_fileParsing_error;
@@ -101,8 +99,6 @@ bool TestFileParser::parseFile()
         m_variants_number = __variants_number;
         return true;
     }
-
-
 }
 
 bool TestFileParser::parseQuestions(QJsonArray jsonArray)
@@ -236,7 +232,7 @@ QList<QuestionModel*>* TestFileParser::questionsList()
     return &m_questionsList;
 }
 
-QList<ComputerPart *> *TestFileParser::variantsList()
+QList<ComputerPart *>* TestFileParser::variantsList()
 {
     return &m_variantsList;
 }
