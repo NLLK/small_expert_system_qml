@@ -2,8 +2,11 @@
 #define CALCULATION_H
 
 #include "src/models/ComputerPart.h"
+#include "src/models/Variant.h"
 
 #include <QList>
+
+#include <src/models/QuestionModel.h>
 
 class Calculation
 {
@@ -82,7 +85,20 @@ public:
     };
 
     Calculation();
-    static void precalculateVariants(QList<ComputerPart*>* variantsList);
+    void precalculateVariants(QList<ComputerPart*>* variantsList);
+
+    void setVariantList(const QList<Variant *> &newVariantList);
+    QList<Variant *> getVariantList() const;
+
+    void setQuestionsList(const QList<QuestionModel *> &newQuestionsList);
+
+private:
+    QList<QuestionModel*> m_questionsList;
+    QList<Variant*> m_variantList;
+    void smallExpertSystemAlgorithm();
+
+    void calculateProbabilitiesForVariant(Variant* variant);
+    Variant::Propability *createPropabilityPointer(double propability);
 };
 
 #endif // CALCULATION_H

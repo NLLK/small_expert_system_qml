@@ -19,6 +19,7 @@ Rectangle {
             loadFieldsFromData(questionIterator)
         }
         else {
+            MainUiController.testDone()
             mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.RESULTS_PAGE)
         }
     }
@@ -72,23 +73,15 @@ Rectangle {
     }
 
     function setAnswerForQuestion(value){
-        //console.log('answer',questionPage.questionIterator, value)
         questionsData[questionIterator].value = value
     }
 
-    //@disable-check M16
     Component.onCompleted: {
         questionPage.numberOfQuestions = MainUiController.numberOfQuestions
-//        print(MainUiController.questionsList[0].questionText)
         if  (questionPage.numberOfQuestions > 0){
             questionPage.questionsData = MainUiController.questionsList
             questionPage.loadFieldsFromData(0)
         }
-        //.push({'type': 0, 'text': 'test question text', 'value': 5},
-        //{'type': 1, 'text': 'test question text ranges', 'minimum': 0, 'maximum': 10},
-        //{'type': 2, 'text': 'test question text options', 'options': [{'textOption':'Op1'}, {'textOption':'Op2'}, {'textOption':'Op3'}]})
-
-
     }
     CustomButton {
         text: 'Выйти'

@@ -114,5 +114,19 @@ void MainUiController::startTest()
     if (!isFilePathOK())
         return;
 
-    Calculation::precalculateVariants(&m_variantsList);
+    //TODO: something do here, or not
 }
+
+void MainUiController::stopTest()
+{
+    //TODO: clear everything
+}
+
+
+void MainUiController::testDone()
+{
+    calculation.setQuestionsList(m_questionsList);
+    calculation.precalculateVariants(&m_variantsList);
+
+}
+

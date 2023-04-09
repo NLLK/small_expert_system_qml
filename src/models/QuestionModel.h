@@ -50,6 +50,10 @@ public:
     double value() const;
     void setValue(double newValue);
 
+    int id() const;
+
+    void setId(int newId);
+
 signals:
 
     void questionTextChanged();
@@ -64,6 +68,7 @@ signals:
     void valueChanged();
 
 private:
+    int m_id = -1;
     QString m_questionText;
     QuestionModel::Type m_questionType;
     int m_plainMinimum = 0;

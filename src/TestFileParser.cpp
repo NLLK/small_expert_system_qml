@@ -123,6 +123,8 @@ bool TestFileParser::parseQuestions(QJsonArray jsonArray)
             return false; //TODO: mem leak
         }
 
+        model->setId(_id);
+
         QString _text = jObj[StaticStringConstants::FileParser::jobj_question_text].toString(StaticStringConstants::FileParser::jobj_question_text_default);
         QString _type = jObj[StaticStringConstants::FileParser::jobj_question_type].toString(StaticStringConstants::FileParser::jobj_question_type_default);
 

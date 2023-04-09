@@ -118,6 +118,16 @@ void QuestionModel::setValue(double newValue)
     emit valueChanged();
 }
 
+int QuestionModel::id() const
+{
+    return m_id;
+}
+
+void QuestionModel::setId(int newId)
+{
+    m_id = newId;
+}
+
 double QuestionModel::valueToRelativeValue(double value)
 {
     double res = 0;

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QUrl>
+#include <src/Calculation.h>
 #include "src/TestFileParser.h"
 #include "src/models/QuestionModel.h"
 
@@ -18,6 +19,8 @@ class MainUiController: public QObject
     Q_PROPERTY(QList<QuestionModel*> questionsList READ questionsList WRITE setQuestionsList NOTIFY questionsListChanged)
 public:
     Q_INVOKABLE void startTest();
+    Q_INVOKABLE void testDone();
+    Q_INVOKABLE void stopTest();
 
 public:
     explicit MainUiController(QObject *parent = nullptr);
@@ -55,6 +58,7 @@ signals:
 
 private:
     TestFileParser testFileParser;
+    Calculation calculation;
 
     QUrl filePathURL;
     QString m_filePath;
