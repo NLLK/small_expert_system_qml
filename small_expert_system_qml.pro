@@ -6,9 +6,12 @@ CONFIG+=
 
 SOURCES += \
         main.cpp \
+        src/Calculation.cpp \
         src/TestFileParser.cpp \
         src/controllers/MainUiController.cpp \
-        src/models/QuestionModel.cpp
+        src/models/ComputerPart.cpp \
+        src/models/QuestionModel.cpp \
+        src/models/Variant.cpp
 
 RESOURCES += qml.qrc
 
@@ -24,7 +27,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    src/Calculation.h \
     src/StaticStringConstants.h \
     src/TestFileParser.h \
     src/controllers/MainUiController.h \
-    src/models/QuestionModel.h
+    src/models/ComputerPart.h \
+    src/models/QuestionModel.h \
+    src/models/Variant.h
