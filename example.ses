@@ -814,6 +814,246 @@
             "vendor": "Seagate",
             "price": 1990,
             "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "ASRock A320M-HDV R4.0",
+            "vendor": "ASRock",
+            "price": 3890,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1151",
+            "product": "ASUS Prime H310M-K R2.0",
+            "vendor": "ASUS",
+            "price": 4390,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "GIGABYTE A320M-S2H V2",
+            "vendor": "GIGABYTE",
+            "price": 4190,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1200",
+            "product": "MSI H410M-A PRO",
+            "vendor": "MSI",
+            "price": 4890,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "ASUS Prime A320M-K R2.0",
+            "vendor": "ASUS",
+            "price": 4090,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1151",
+            "product": "ASUS PRIME H310M-K R2.0/CSM LGA1151",
+            "vendor": "ASUS",
+            "price": 3999,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "GIGABYTE GA-A320M-S2H V2 (rev. 1.x) AM4",
+            "vendor": "GIGABYTE",
+            "price": 4590,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1151",
+            "product": "MSI H310M PRO-M2 PLUS LGA1151",
+            "vendor": "MSI",
+            "price": 3799,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "ASRock A320M-HDV R4.0 AM4",
+            "vendor": "ASRock",
+            "price": 4090,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1151",
+            "product": "GIGABYTE H310M S2H (rev. 1.x) LGA1151",
+            "vendor": "GIGABYTE",
+            "price": 4390,
+            "perfomance": "low"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1151",
+            "product": "ASRock B460M Pro4",
+            "vendor": "ASRock",
+            "price": 10500,
+            "perfomance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "MSI B450M-A PRO MAX",
+            "vendor": "MSI",
+            "price": 9500,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1200",
+            "product": "GIGABYTE B560 AORUS ELITE AX",
+            "vendor": "GIGABYTE",
+            "price": 17500,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "ASUS TUF GAMING B550-PLUS",
+            "vendor": "ASUS",
+            "price": 15500,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1151",
+            "product": "MSI B360-A PRO",
+            "vendor": "MSI",
+            "price": 7500,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "ASUS Prime B550M-A/CSM Micro ATX Motherboard",
+            "vendor": "ASUS",
+            "price": 11490,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA 1200",
+            "product": "MSI MAG B460M BAZOOKA Micro ATX Motherboard",
+            "vendor": "MSI",
+            "price": 8990,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "GIGABYTE B450 AORUS M Micro ATX Motherboard",
+            "vendor": "GIGABYTE",
+            "price": 8690,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA 1200",
+            "product": "ASUS Prime H510M-A/CSM Micro ATX Motherboard",
+            "vendor": "ASUS",
+            "price": 7490,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "ASRock B450M-HDV R4.0 Micro ATX Motherboard",
+            "vendor": "ASRock",
+            "price": 6790,
+            "performance": "middle"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA 1200",
+            "product": "ASUS ROG Maximus XIII Hero",
+            "vendor": "ASUS",
+            "price": 37990,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "Gigabyte AORUS X570 Master",
+            "vendor": "Gigabyte",
+            "price": 32000,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA 2066",
+            "product": "MSI Creator TRX40",
+            "vendor": "MSI",
+            "price": 49000,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "ASRock X570 Taichi",
+            "vendor": "ASRock",
+            "price": 27000,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA 1200",
+            "product": "Gigabyte Z590 AORUS Master",
+            "vendor": "Gigabyte",
+            "price": 41500,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1200",
+            "product": "ASUS ROG Maximus XIII Hero",
+            "vendor": "ASUS",
+            "price": 43990,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "GIGABYTE AORUS X570 Master",
+            "vendor": "GIGABYTE",
+            "price": 38990,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA2066",
+            "product": "MSI MEG X299 Creation",
+            "vendor": "MSI",
+            "price": 56990,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "AM4",
+            "product": "ASRock X570 Taichi",
+            "vendor": "ASRock",
+            "price": 32990,
+            "performance": "high"
+        },
+        {
+            "type": "motherboard",
+            "compatibility": "LGA1200",
+            "product": "GIGABYTE Z590 AORUS Master",
+            "vendor": "GIGABYTE",
+            "price": 48990,
+            "performance": "high"
         }
     ]
 }
