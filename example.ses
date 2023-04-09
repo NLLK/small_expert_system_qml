@@ -100,6 +100,7 @@
             "product": "Palit GeForce RTX 3070 Ti GamingPro NED307T019P2-1046A",
             "vendor": "Palit",
             "side": "NVIDIA",
+            "perfomance": "high",
             "price": 60000
         },
         {
@@ -108,6 +109,7 @@
             "product": "Gigabyte GeForce RTX 4090 GAMING OC GV-N4090GAMING OC-24GD",
             "vendor": "Gigabyte",
             "price": 152000,
+            "perfomance": "high",
             "side": "NVIDIA"
         },
         {
@@ -116,6 +118,7 @@
             "product": "MSI GeForce 210 N210-1GD3LP",
             "vendor": "MSI",
             "price": 3290,
+            "perfomance": "low",
             "side": "NVIDIA"
         },
         {
@@ -124,6 +127,7 @@
             "product": "MSI GeForce GT 710 Silent LP GT 710 2GD3H LP",
             "vendor": "MSI",
             "price": 3990,
+            "perfomance": "low",
             "side": "NVIDIA"
         },
         {
@@ -132,6 +136,7 @@
             "product": "PowerColor AMD Radeon R7 240 AXR7 240 2GBD5-HL/V2",
             "vendor": "PowerColor",
             "price": 4990,
+            "perfomance": "low",
             "side": "AMD"
         },
         {
@@ -140,6 +145,7 @@
             "product": "Gigabyte GeForce GT 710 LP GV-N710D5-2GL",
             "vendor": "Gigabyte",
             "price": 3990,
+            "perfomance": "low",
             "side": "NVIDIA"
         },
         {
@@ -148,6 +154,7 @@
             "product": "Palit GeForce GT 1030 NEC103000646-1082F",
             "vendor": "Palit",
             "price": 6590,
+            "perfomance": "low",
             "side": "NVIDIA"
         },
         {
@@ -156,6 +163,7 @@
             "product": "ASUS GeForce GT 730 GT730-4H-SL-2GD5",
             "vendor": "ASUS",
             "price": 7490,
+            "perfomance": "low",
             "side": "NVIDIA"
         },
         {
@@ -164,6 +172,7 @@
             "product": "Gigabyte GeForce GT 1030 GV-N1030SL-2GL",
             "vendor": "Gigabyte",
             "price": 8290,
+            "perfomance": "low",
             "side": "NVIDIA"
         },
         {
@@ -172,6 +181,7 @@
             "product": "PowerColor AMD Radeon RX 550 Red Dragon LP AXRX 550 4GBD5-HLE",
             "vendor": "PowerColor",
             "price": 12690,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -180,6 +190,7 @@
             "product": "Sapphire AMD Radeon RX 550 Pulse OC 11268-01-20G",
             "vendor": "Sapphire",
             "price": 10490,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -188,6 +199,7 @@
             "product": "MSI AMD Radeon RX 550 AERO ITX OC ZT 70302-10P RX 550 AERO ITX 4G OC",
             "vendor": "MSI",
             "price": 14990,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -196,6 +208,7 @@
             "product": "ASUS Dual Radeon RX 560 DUAL-RX560-4G",
             "vendor": "ASUS",
             "price": 14990,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -204,6 +217,7 @@
             "product": "MSI Radeon RX 6400 Aero ITX RX 6400 Aero ITX 4G",
             "vendor": "MSI",
             "price": 17990,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -212,6 +226,7 @@
             "product": "ASUS NVIDIA GeForce GTX 1050 Ti CERBERUS-GTX1050TI-A4G",
             "vendor": "ASUS",
             "price": 16990,
+            "perfomance": "middle",
             "side": "NVIDIA"
         },
         {
@@ -219,6 +234,7 @@
             "compatibility": "DDR4",
             "product": "Corsair Vengeance LPX 16GB (2 x 8GB) DDR4 DRAM 3200MHz C16 Memory Kit - Black",
             "vendor": "Corsair",
+            "perfomance": "middle",
             "price": 6990
         },
         {
@@ -227,6 +243,7 @@
             "product": "MSI GeForce GTX 1660 Super VENTUS XS OC",
             "vendor": "MSI",
             "price": 27990,
+            "perfomance": "middle",
             "side": "Nvidia"
         },
         {
@@ -235,6 +252,7 @@
             "product": "Gigabyte GeForce GTX 1650 OC Low Profile GV-N1650OC-4GL",
             "vendor": "Gigabyte",
             "price": 15990,
+            "perfomance": "middle",
             "side": "Nvidia"
         },
         {
@@ -243,6 +261,7 @@
             "product": "ZOTAC GAMING GeForce GTX 1050 Ti Mini ZT-P10510A-10L",
             "vendor": "ZOTAC",
             "price": 12990,
+            "perfomance": "middle",
             "side": "Nvidia"
         },
         {
@@ -251,6 +270,7 @@
             "product": "ASRock Radeon RX 5500 XT Challenger D 8G OC",
             "vendor": "ASRock",
             "price": 25990,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -259,6 +279,7 @@
             "product": "MSI GeForce GT 1030 2GH LP OC",
             "vendor": "MSI",
             "price": 8490,
+            "perfomance": "low",
             "side": "Nvidia"
         },
         {
@@ -267,6 +288,7 @@
             "product": "PowerColor Radeon RX 6600 XT Fighter AXRX 6600XT 8GBD6-3DHR/OC",
             "vendor": "PowerColor",
             "price": 39990,
+            "perfomance": "high",
             "side": "AMD"
         },
         {
@@ -275,6 +297,7 @@
             "product": "GIGABYTE GeForce RTX 3070 GAMING OC 8G",
             "vendor": "GIGABYTE",
             "price": 41333.33,
+            "perfomance": "high",
             "side": "NVIDIA"
         },
         {
@@ -283,6 +306,7 @@
             "product": "MSI Radeon RX 6900 XT GAMING X TRIO 16G",
             "vendor": "MSI",
             "price": 70800,
+            "perfomance": "high",
             "side": "AMD"
         },
         {
@@ -291,6 +315,7 @@
             "product": "ASUS TUF Gaming GeForce RTX 3080 OC 10G",
             "vendor": "ASUS",
             "price": 51666.67,
+            "perfomance": "high",
             "side": "NVIDIA"
         },
         {
@@ -299,6 +324,7 @@
             "product": "Sapphire Nitro+ Radeon RX 6800 XT 16G",
             "vendor": "Sapphire",
             "price": 61800,
+            "perfomance": "high",
             "side": "AMD"
         },
         {
@@ -307,6 +333,7 @@
             "product": "EVGA GeForce RTX 3090 FTW3 ULTRA GAMING 24G-P5-3987-KR",
             "vendor": "EVGA",
             "price": 76000,
+            "perfomance": "high",
             "side": "NVIDIA"
         },
         {
@@ -315,6 +342,7 @@
             "product": "ASUS GeForce GTX 1660 TUF-GTX1660-O6G-GAMING",
             "vendor": "ASUS",
             "price": 19990,
+            "perfomance": "middle",
             "side": "NVIDIA"
         },
         {
@@ -323,6 +351,7 @@
             "product": "GIGABYTE Radeon RX 580 GAMING GV-RX580GAMING-8GD",
             "vendor": "GIGABYTE",
             "price": 18990,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -331,6 +360,7 @@
             "product": "MSI GeForce GTX 1650 GAMING X 4G",
             "vendor": "MSI",
             "price": 14990,
+            "perfomance": "middle",
             "side": "NVIDIA"
         },
         {
@@ -339,6 +369,7 @@
             "product": "SAPPHIRE PULSE Radeon RX 5700 XT 11293-01-20G",
             "vendor": "SAPPHIRE",
             "price": 36990,
+            "perfomance": "high",
             "side": "AMD"
         },
         {
@@ -347,6 +378,7 @@
             "product": "ASRock Phantom Gaming D Radeon RX 5500 XT PGD Radeon RX5500XT 8G OC",
             "vendor": "ASRock",
             "price": 21990,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -355,6 +387,7 @@
             "product": "Intel Core i9-9900K",
             "vendor": "Intel",
             "price": 23990,
+            "perfomance": "high",
             "side": "Intel"
         },
         {
@@ -363,6 +396,7 @@
             "product": "AMD Ryzen 7 3700X",
             "vendor": "AMD",
             "price": 18990,
+            "perfomance": "high",
             "side": "AMD"
         },
         {
@@ -371,6 +405,7 @@
             "product": "Intel Core i7-9700K",
             "vendor": "Intel",
             "price": 16990,
+            "perfomance": "high",
             "side": "Intel"
         },
         {
@@ -379,6 +414,7 @@
             "product": "AMD Ryzen 5 5600X",
             "vendor": "AMD",
             "price": 13990,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -387,6 +423,7 @@
             "product": "Intel Core i5-10600K",
             "vendor": "Intel",
             "price": 11990,
+            "perfomance": "middle",
             "side": "Intel"
         },
         {
@@ -395,6 +432,7 @@
             "product": "Intel Pentium Gold G5420",
             "vendor": "Intel",
             "price": 4490,
+            "perfomance": "low",
             "side": "Intel"
         },
         {
@@ -403,6 +441,7 @@
             "product": "AMD Ryzen 3 1200",
             "vendor": "AMD",
             "price": 3890,
+            "perfomance": "low",
             "side": "AMD"
         },
         {
@@ -411,6 +450,7 @@
             "product": "Intel Celeron G3930",
             "vendor": "Intel",
             "price": 2690,
+            "perfomance": "low",
             "side": "Intel"
         },
         {
@@ -419,6 +459,7 @@
             "product": "AMD A4-6300",
             "vendor": "AMD",
             "price": 1990,
+            "perfomance": "low",
             "side": "AMD"
         },
         {
@@ -427,6 +468,7 @@
             "product": "AMD Athlon 3000G",
             "vendor": "AMD",
             "price": 3990,
+            "perfomance": "low",
             "side": "AMD"
         },
         {
@@ -435,6 +477,7 @@
             "product": "Intel Pentium Gold G5400",
             "vendor": "Intel",
             "price": 3690,
+            "perfomance": "low",
             "side": "Intel"
         },
         {
@@ -443,6 +486,7 @@
             "product": "AMD A8-9600",
             "vendor": "AMD",
             "price": 3490,
+            "perfomance": "low",
             "side": "AMD"
         },
         {
@@ -451,6 +495,7 @@
             "product": "Intel Celeron G4920",
             "vendor": "Intel",
             "price": 2990,
+            "perfomance": "low",
             "side": "Intel"
         },
         {
@@ -459,14 +504,7 @@
             "product": "AMD A6-9500",
             "vendor": "AMD",
             "price": 2690,
-            "side": "AMD"
-        },
-        {
-            "type": "CPU",
-            "compatibility": "AM4",
-            "product": "AMD Ryzen 5 5600X",
-            "vendor": "AMD",
-            "price": 20000,
+            "perfomance": "low",
             "side": "AMD"
         },
         {
@@ -475,6 +513,7 @@
             "product": "Intel Core i5-11600K",
             "vendor": "Intel",
             "price": 17000,
+            "perfomance": "middle",
             "side": "Intel"
         },
         {
@@ -483,6 +522,7 @@
             "product": "AMD Ryzen 5 3600X",
             "vendor": "AMD",
             "price": 13000,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -491,6 +531,7 @@
             "product": "Intel Core i7-9700K",
             "vendor": "Intel",
             "price": 15000,
+            "perfomance": "high",
             "side": "Intel"
         },
         {
@@ -499,6 +540,7 @@
             "product": "AMD Ryzen 7 3800X",
             "vendor": "AMD",
             "price": 19000,
+            "perfomance": "high",
             "side": "AMD"
         },
         {
@@ -507,6 +549,7 @@
             "product": "Intel Core i5-10400",
             "vendor": "Intel",
             "price": 11500,
+            "perfomance": "middle",
             "side": "Intel"
         },
         {
@@ -515,6 +558,7 @@
             "product": "AMD Ryzen 5 3600",
             "vendor": "AMD",
             "price": 13500,
+            "perfomance": "middle",
             "side": "AMD"
         },
         {
@@ -523,15 +567,8 @@
             "product": "Intel Core i5-9600K",
             "vendor": "Intel",
             "price": 13900,
+            "perfomance": "high",
             "side": "Intel"
-        },
-        {
-            "type": "CPU",
-            "compatibility": "AM4",
-            "product": "AMD Ryzen 5 5600X",
-            "vendor": "AMD",
-            "price": 18000,
-            "side": "AMD"
         },
         {
             "type": "CPU",
@@ -539,97 +576,218 @@
             "product": "Intel Core i7-9700K",
             "vendor": "Intel",
             "price": 21000,
+            "perfomance": "high",
             "side": "Intel"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Corsair Vengeance RGB Pro 32GB (2x16GB) DDR4 3600",
-            "price": 13990
+            "price": 13990,
+            "perfomance": "high"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "G.Skill Trident Z Royal Silver 16GB (2x8GB) DDR4 3600",
-            "price": 8990
+            "price": 8990,
+            "perfomance": "middle"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Teamgroup T-Force Delta RGB 32GB (2x16GB) DDR4 3200",
-            "price": 11990
+            "price": 11990,
+            "perfomance": "high"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Crucial Ballistix RGB 16GB (2x8GB) DDR4 3200",
-            "price": 5990
+            "price": 5990,
+            "perfomance": "middle"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Kingston HyperX Predator RGB 64GB (4x16GB) DDR4 3600",
-            "price": 29990
+            "price": 29990,
+            "perfomance": "high"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Corsair Vengeance LPX 16GB (2 x 8GB) DDR4 3200 (PC4-25600) C16 1.35V Desktop Memory - Black",
-            "price": 5499
+            "price": 5499,
+            "perfomance": "middle"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "G.Skill TridentZ RGB Series 16GB (2 x 8GB) DDR4 3200MHz DIMM CAS 16 F4-3200C16D-16GTZR",
-            "price": 5690
+            "price": 5690,
+            "perfomance": "middle"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Crucial Ballistix RGB 16GB (2 x 8GB) DDR4 3200 (PC4-25600) CL16 SR x8 Unbuffered DIMM 288-Pin Desktop Gaming Memory BL2K8G32C16U4BL",
-            "price": 5299
+            "price": 5299,
+            "perfomance": "middle"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Kingston HyperX Fury RGB 16GB (2 x 8GB) DDR4 3200MHz CL16 DIMM XMP Desktop Memory HX432C16FB3AK2/16",
-            "price": 5490
+            "price": 5490,
+            "perfomance": "middle"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Patriot Viper Steel Series 16GB (2 x 8GB) DDR4 3200MHz DIMM CAS 16 PVS416G320C6K",
-            "price": 5190
+            "price": 5190,
+            "perfomance": "middle"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Kingston HyperX FURY 4GB DDR3 1600MHz CL10",
-            "price": 1499
+            "price": 1499,
+            "perfomance": "low"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Crucial 4GB DDR4 2400MHz CL17 DIMM",
-            "price": 1699
+            "price": 1699,
+            "perfomance": "low"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "ADATA Premier 4GB DDR4 2400MHz CL17 DIMM",
-            "price": 1599
+            "price": 1599,
+            "perfomance": "low"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "Corsair Value Select 4GB DDR4 2133MHz CL15 DIMM",
-            "price": 1799
+            "price": 1799,
+            "perfomance": "low"
         },
         {
             "type": "memory",
             "compatibility": "any",
             "product": "G.Skill Aegis 4GB DDR4 2400MHz CL15 DIMM",
-            "price": 1599
+            "price": 1599,
+            "perfomance": "low"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Samsung 970 EVO Plus 2TB NVMe SSD",
+            "price": 35499,
+            "perfomance": "high"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Crucial MX500 2TB 3D NAND SATA 2.5 Inch Internal SSD",
+            "price": 20499,
+            "perfomance": "high"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "WD_Black SN850 1TB NVMe Internal Gaming SSD",
+            "price": 15799,
+            "perfomance": "high"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Seagate FireCuda 520 2TB Performance Internal SSD",
+            "price": 31899,
+            "perfomance": "high"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Intel SSD 660p Series 2TB M.2 80mm PCIe 3.0 x 4 3D2 QLC Internal Solid State Drive",
+            "price": 21499,
+            "perfomance": "high"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Kingston A2000 500GB NVMe SSD",
+            "price": 6490,
+            "perfomance": "middle"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Samsung 860 EVO 1TB SATA III SSD",
+            "price": 8790,
+            "perfomance": "middle"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "WD Blue SN550 1TB NVMe SSD",
+            "price": 8990,
+            "perfomance": "middle"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Crucial MX500 1TB SATA III SSD",
+            "price": 9390,
+            "perfomance": "middle"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Seagate FireCuda 520 1TB NVMe SSD",
+            "price": 12790,
+            "perfomance": "middle"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Kingston A400 240GB SATA 3 2.5\" SSD",
+            "price": 3290,
+            "perfomance": "low"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Western Digital Blue 1TB 7200 RPM 3.5\" HDD",
+            "price": 3590,
+            "perfomance": "low"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Toshiba P300 500GB 7200 RPM 3.5\" HDD",
+            "price": 2190,
+            "perfomance": "low"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "ADATA SU650 120GB SATA 3 2.5\" SSD",
+            "price": 2090,
+            "perfomance": "low"
+        },
+        {
+            "type": "drive",
+            "compatibility": "any",
+            "product": "Seagate Barracuda 500GB 7200 RPM 3.5\" HDD",
+            "price": 1990,
+            "perfomance": "low"
         }
     ]
 }
