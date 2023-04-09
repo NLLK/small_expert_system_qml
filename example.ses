@@ -583,6 +583,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Corsair Vengeance RGB Pro 32GB (2x16GB) DDR4 3600",
+            "vendor": "Corsair",
             "price": 13990,
             "perfomance": "high"
         },
@@ -590,6 +591,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "G.Skill Trident Z Royal Silver 16GB (2x8GB) DDR4 3600",
+            "vendor": "G.Skill",
             "price": 8990,
             "perfomance": "middle"
         },
@@ -597,6 +599,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Teamgroup T-Force Delta RGB 32GB (2x16GB) DDR4 3200",
+            "vendor": "Teamgroup",
             "price": 11990,
             "perfomance": "high"
         },
@@ -604,6 +607,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Crucial Ballistix RGB 16GB (2x8GB) DDR4 3200",
+            "vendor": "Crucial",
             "price": 5990,
             "perfomance": "middle"
         },
@@ -611,6 +615,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Kingston HyperX Predator RGB 64GB (4x16GB) DDR4 3600",
+            "vendor": "Kingston",
             "price": 29990,
             "perfomance": "high"
         },
@@ -618,6 +623,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Corsair Vengeance LPX 16GB (2 x 8GB) DDR4 3200 (PC4-25600) C16 1.35V Desktop Memory - Black",
+            "vendor": "Corsair",
             "price": 5499,
             "perfomance": "middle"
         },
@@ -625,6 +631,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "G.Skill TridentZ RGB Series 16GB (2 x 8GB) DDR4 3200MHz DIMM CAS 16 F4-3200C16D-16GTZR",
+            "vendor": "G.Skill",
             "price": 5690,
             "perfomance": "middle"
         },
@@ -632,6 +639,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Crucial Ballistix RGB 16GB (2 x 8GB) DDR4 3200 (PC4-25600) CL16 SR x8 Unbuffered DIMM 288-Pin Desktop Gaming Memory BL2K8G32C16U4BL",
+            "vendor": "Crucial",
             "price": 5299,
             "perfomance": "middle"
         },
@@ -639,6 +647,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Kingston HyperX Fury RGB 16GB (2 x 8GB) DDR4 3200MHz CL16 DIMM XMP Desktop Memory HX432C16FB3AK2/16",
+            "vendor": "Kingston",
             "price": 5490,
             "perfomance": "middle"
         },
@@ -646,6 +655,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Patriot Viper Steel Series 16GB (2 x 8GB) DDR4 3200MHz DIMM CAS 16 PVS416G320C6K",
+            "vendor": "Patriot",
             "price": 5190,
             "perfomance": "middle"
         },
@@ -653,6 +663,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Kingston HyperX FURY 4GB DDR3 1600MHz CL10",
+            "vendor": "Kingston",
             "price": 1499,
             "perfomance": "low"
         },
@@ -660,6 +671,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Crucial 4GB DDR4 2400MHz CL17 DIMM",
+            "vendor": "Crucial",
             "price": 1699,
             "perfomance": "low"
         },
@@ -667,6 +679,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "ADATA Premier 4GB DDR4 2400MHz CL17 DIMM",
+            "vendor": "ADATA",
             "price": 1599,
             "perfomance": "low"
         },
@@ -674,6 +687,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "Corsair Value Select 4GB DDR4 2133MHz CL15 DIMM",
+            "vendor": "Corsair",
             "price": 1799,
             "perfomance": "low"
         },
@@ -681,6 +695,7 @@
             "type": "memory",
             "compatibility": "any",
             "product": "G.Skill Aegis 4GB DDR4 2400MHz CL15 DIMM",
+            "vendor": "G.Skill",
             "price": 1599,
             "perfomance": "low"
         },
@@ -688,6 +703,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Samsung 970 EVO Plus 2TB NVMe SSD",
+            "vendor": "Samsung",
             "price": 35499,
             "perfomance": "high"
         },
@@ -695,6 +711,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Crucial MX500 2TB 3D NAND SATA 2.5 Inch Internal SSD",
+            "vendor": "Crucial",
             "price": 20499,
             "perfomance": "high"
         },
@@ -702,6 +719,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "WD_Black SN850 1TB NVMe Internal Gaming SSD",
+            "vendor": "WD",
             "price": 15799,
             "perfomance": "high"
         },
@@ -709,6 +727,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Seagate FireCuda 520 2TB Performance Internal SSD",
+            "vendor": "Seagate",
             "price": 31899,
             "perfomance": "high"
         },
@@ -716,6 +735,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Intel SSD 660p Series 2TB M.2 80mm PCIe 3.0 x 4 3D2 QLC Internal Solid State Drive",
+            "vendor": "Intel",
             "price": 21499,
             "perfomance": "high"
         },
@@ -723,6 +743,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Kingston A2000 500GB NVMe SSD",
+            "vendor": "Kingston",
             "price": 6490,
             "perfomance": "middle"
         },
@@ -730,6 +751,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Samsung 860 EVO 1TB SATA III SSD",
+            "vendor": "Samsung",
             "price": 8790,
             "perfomance": "middle"
         },
@@ -737,6 +759,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "WD Blue SN550 1TB NVMe SSD",
+            "vendor": "WD",
             "price": 8990,
             "perfomance": "middle"
         },
@@ -744,6 +767,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Crucial MX500 1TB SATA III SSD",
+            "vendor": "Crucial",
             "price": 9390,
             "perfomance": "middle"
         },
@@ -751,6 +775,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Seagate FireCuda 520 1TB NVMe SSD",
+            "vendor": "Seagate",
             "price": 12790,
             "perfomance": "middle"
         },
@@ -758,6 +783,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Kingston A400 240GB SATA 3 2.5\" SSD",
+            "vendor": "Kingston",
             "price": 3290,
             "perfomance": "low"
         },
@@ -765,6 +791,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Western Digital Blue 1TB 7200 RPM 3.5\" HDD",
+            "vendor": "Western",
             "price": 3590,
             "perfomance": "low"
         },
@@ -772,6 +799,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Toshiba P300 500GB 7200 RPM 3.5\" HDD",
+            "vendor": "Toshiba",
             "price": 2190,
             "perfomance": "low"
         },
@@ -779,6 +807,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "ADATA SU650 120GB SATA 3 2.5\" SSD",
+            "vendor": "ADATA",
             "price": 2090,
             "perfomance": "low"
         },
@@ -786,6 +815,7 @@
             "type": "drive",
             "compatibility": "any",
             "product": "Seagate Barracuda 500GB 7200 RPM 3.5\" HDD",
+            "vendor": "Seagate",
             "price": 1990,
             "perfomance": "low"
         }
