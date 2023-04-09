@@ -722,7 +722,7 @@
         {
             "type": "drive",
             "compatibility": "any",
-            "product": "Seagate FireCuda 520 2TB Performance Internal SSD",
+            "product": "Seagate FireCuda 520 2TB perfomance Internal SSD",
             "vendor": "Seagate",
             "price": 31899,
             "perfomance": "high"
@@ -909,7 +909,7 @@
             "product": "MSI B450M-A PRO MAX",
             "vendor": "MSI",
             "price": 9500,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -917,7 +917,7 @@
             "product": "GIGABYTE B560 AORUS ELITE AX",
             "vendor": "GIGABYTE",
             "price": 17500,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -925,7 +925,7 @@
             "product": "ASUS TUF GAMING B550-PLUS",
             "vendor": "ASUS",
             "price": 15500,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -933,7 +933,7 @@
             "product": "MSI B360-A PRO",
             "vendor": "MSI",
             "price": 7500,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -941,7 +941,7 @@
             "product": "ASUS Prime B550M-A/CSM Micro ATX Motherboard",
             "vendor": "ASUS",
             "price": 11490,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -949,7 +949,7 @@
             "product": "MSI MAG B460M BAZOOKA Micro ATX Motherboard",
             "vendor": "MSI",
             "price": 8990,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -957,7 +957,7 @@
             "product": "GIGABYTE B450 AORUS M Micro ATX Motherboard",
             "vendor": "GIGABYTE",
             "price": 8690,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -965,7 +965,7 @@
             "product": "ASUS Prime H510M-A/CSM Micro ATX Motherboard",
             "vendor": "ASUS",
             "price": 7490,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -973,7 +973,7 @@
             "product": "ASRock B450M-HDV R4.0 Micro ATX Motherboard",
             "vendor": "ASRock",
             "price": 6790,
-            "performance": "middle"
+            "perfomance": "middle"
         },
         {
             "type": "motherboard",
@@ -981,7 +981,7 @@
             "product": "ASUS ROG Maximus XIII Hero",
             "vendor": "ASUS",
             "price": 37990,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -989,7 +989,7 @@
             "product": "Gigabyte AORUS X570 Master",
             "vendor": "Gigabyte",
             "price": 32000,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -997,7 +997,7 @@
             "product": "MSI Creator TRX40",
             "vendor": "MSI",
             "price": 49000,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -1005,7 +1005,7 @@
             "product": "ASRock X570 Taichi",
             "vendor": "ASRock",
             "price": 27000,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -1013,7 +1013,7 @@
             "product": "Gigabyte Z590 AORUS Master",
             "vendor": "Gigabyte",
             "price": 41500,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -1021,7 +1021,7 @@
             "product": "ASUS ROG Maximus XIII Hero",
             "vendor": "ASUS",
             "price": 43990,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -1029,7 +1029,7 @@
             "product": "GIGABYTE AORUS X570 Master",
             "vendor": "GIGABYTE",
             "price": 38990,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -1037,7 +1037,7 @@
             "product": "MSI MEG X299 Creation",
             "vendor": "MSI",
             "price": 56990,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -1045,7 +1045,7 @@
             "product": "ASRock X570 Taichi",
             "vendor": "ASRock",
             "price": 32990,
-            "performance": "high"
+            "perfomance": "high"
         },
         {
             "type": "motherboard",
@@ -1053,7 +1053,7 @@
             "product": "GIGABYTE Z590 AORUS Master",
             "vendor": "GIGABYTE",
             "price": 48990,
-            "performance": "high"
+            "perfomance": "high"
         }
     ]
 }
