@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.2
 import "./pages"
 import "pageLoader.js" as PageLoaderJs
+
 Window {
     minimumHeight: 720
     minimumWidth: 1280

@@ -29,6 +29,21 @@ public:
         static inline QString jobj_question_data_minimum = "minimum";
         static inline QString jobj_question_data_maximum = "maximum";
 
+        //computer variant parsing
+        static inline QString jobj_variant_type = "type";
+
+        static inline QString jobj_variant_compatibility = "compatibility";
+        static inline QString jobj_variant_compatibility_default = "any";
+
+        static inline QString jobj_variant_product = "product";
+        static inline QString jobj_variant_product_default = "Название не указано";
+
+        static inline QString jobj_variant_vendor = "vendor";
+
+        static inline QString jobj_variant_side = "side";
+        static inline QString jobj_variant_perfomance = "perfomance";
+        static inline QString jobj_variant_price = "price";
+
         //Other constants
         static inline QString dataName_fileParsing_error = "Ошибка в парсинге файла";
 

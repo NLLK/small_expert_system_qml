@@ -16,6 +16,8 @@ class MainUiController: public QObject
     Q_PROPERTY(int numberOfVariants READ numberOfVariants WRITE setNumberOfVariants NOTIFY numberOfVariantsChanged)
 
     Q_PROPERTY(QList<QuestionModel*> questionsList READ questionsList WRITE setQuestionsList NOTIFY questionsListChanged)
+public:
+    Q_INVOKABLE void startTest();
 
 public:
     explicit MainUiController(QObject *parent = nullptr);
@@ -61,6 +63,7 @@ private:
     int m_numberOfVariants = 0;
     QString m_dataName;
     QList<QuestionModel *> m_questionsList;
+    QList<ComputerPart*> m_variantsList;
 };
 
 #endif // MAINUICONTROLLER_H

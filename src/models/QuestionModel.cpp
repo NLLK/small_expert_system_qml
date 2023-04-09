@@ -38,13 +38,14 @@ void QuestionModel::setQuestionType(QString s_questionType)
 }
 
 QuestionModel::Type QuestionModel::stringToQuestionType(QString s_questionType){
-    if (s_questionType.toLower() == "plain"){
+    QString _type = s_questionType.toLower();
+    if (_type == "plain"){
         return QuestionModel::Type::Plain;
     }
-    else if (s_questionType.toLower() == "ranges"){
+    else if (_type == "ranges"){
         return QuestionModel::Type::Ranges;
     }
-    else if (s_questionType.toLower() == "options"){
+    else if (_type == "options"){
         return QuestionModel::Type::Options;
     }
     return QuestionModel::Type::Plain;

@@ -3,6 +3,7 @@ import QtQuick.Controls 2.0
 
 import "../components"
 import "../pageLoader.js" as PageLoaderJs
+
 Rectangle {
     anchors.fill: parent
 

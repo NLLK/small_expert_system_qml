@@ -1,4 +1,5 @@
 #include "MainUiController.h"
+#include "src/Calculation.h"
 #include <QDebug>
 MainUiController::MainUiController(QObject *parent) : QObject(parent)
 {
@@ -29,7 +30,7 @@ void MainUiController::setFilePath(const QString &newFilePath)
     m_filePath = newFilePath;
 
     bool checked = testFileParser.checkFilePath(m_filePath);
-    this->setIsFilePathOK(checked);
+
 
     if (checked){
         if (testFileParser.parseFile()){
@@ -37,9 +38,11 @@ void MainUiController::setFilePath(const QString &newFilePath)
             this->setNumberOfQuestions(testFileParser.questions_number());
             this->setNumberOfVariants(testFileParser.variants_number());
             this->setQuestionsList(*testFileParser.questionsList());
+            m_variantsList = *testFileParser.variantsList();
         }
+        else checked = false;
     }
-
+    this->setIsFilePathOK(checked);
     emit filePathChanged();
 }
 
@@ -104,4 +107,12 @@ void MainUiController::setQuestionsList(QList<QuestionModel *> newQuestionsList)
 {
     m_questionsList = newQuestionsList;
     emit questionsListChanged();
+}
+
+void MainUiController::startTest()
+{
+    if (!isFilePathOK())
+        return;
+
+    Calculation::precalculateVariants(&m_variantsList);
 }

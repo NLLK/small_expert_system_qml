@@ -45,7 +45,10 @@ Rectangle {
         id: startTestButton
         text: "Начать тест"
 
-        onClicked: mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.QUESTION_PAGE)
+        onClicked: {
+            MainUiController.startTest()
+            mainLoader.setSource(PageLoaderJs.PagesFilePathEnum.QUESTION_PAGE)
+        }
         enabled: MainUiController.isFilePathOK
 
         width: 350

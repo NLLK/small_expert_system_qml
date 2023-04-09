@@ -3,6 +3,7 @@ import QtQuick 2.0
 import '../components'
 import "../pageLoader.js" as PageLoaderJs
 import QtQml
+
 Rectangle {
     id: questionPage
     property string questionText: "Temp text"

@@ -10,6 +10,7 @@
 
 #include "src/StaticStringConstants.h"
 #include "src/models/QuestionModel.h"
+#include "src/models/ComputerPart.h"
 class TestFileParser
 {
 public:
@@ -17,11 +18,13 @@ public:
     bool checkFilePath(QString filePath);
     bool parseFile();
     bool parseQuestions(QJsonArray jsonArray);
+    bool parseVariants(QJsonArray jsonArray);
     int questions_number();
     int variants_number();
     QString dataName() const;
 
     QList<QuestionModel*>* questionsList();
+    QList<ComputerPart*>* variantsList();
 
 private:
     int m_questions_number = -1;
@@ -29,6 +32,7 @@ private:
     QUrl m_fileUrl;
     QString m_dataName = StaticStringConstants::FileParser::dataName_fileParsing_error;
     QList<QuestionModel*> m_questionsList;
+    QList<ComputerPart*> m_variantsList;
     //QFile m_file;
 };
 

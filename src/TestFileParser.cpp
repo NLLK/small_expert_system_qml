@@ -77,10 +77,15 @@ bool TestFileParser::parseFile()
             }
             else isFileOk = false;
 
-            QJsonArray jVariants = jObj[StaticStringConstants::FileParser::jsonf_variants].toArray();
-            if (jVariants.count() != 0)
-                __variants_number = jVariants.count();
-            else isFileOk = false;
+            if (isFileOk){
+                QJsonArray jVariants = jObj[StaticStringConstants::FileParser::jsonf_variants].toArray();
+                if (jVariants.count() != 0){
+                    __variants_number = jVariants.count();
+                    isFileOk = parseVariants(jVariants);
+                }
+                else isFileOk = false;
+            }
+
         }
 
     }
@@ -115,7 +120,7 @@ bool TestFileParser::parseQuestions(QJsonArray jsonArray)
             _id = jObj[StaticStringConstants::FileParser::jobj_question_text].toInt(0);
         } catch (...) {
             printf("Error in question field \"id\". Question index is %d\n", i);
-            return false;
+            return false; //TODO: mem leak
         }
 
         QString _text = jObj[StaticStringConstants::FileParser::jobj_question_text].toString(StaticStringConstants::FileParser::jobj_question_text_default);
@@ -130,7 +135,7 @@ bool TestFileParser::parseQuestions(QJsonArray jsonArray)
                 QJsonArray _jArrayOptions = jObjData[StaticStringConstants::FileParser::jobj_question_data_options].toArray();
                 if (_jArrayOptions.count() == 0){
                     printf("Error in options array. It is empty. Question index is %d\n", i);
-                    return false;
+                    return false; //TODO: mem leak
                 }
                 QVariantList _options = _jArrayOptions.toVariantList();
                 model->setOptionsOptions(_options);
@@ -138,12 +143,70 @@ bool TestFileParser::parseQuestions(QJsonArray jsonArray)
 
         }
 
-
-
-
         m_questionsList.append(model);
     }
 
+    return true;
+}
+
+bool TestFileParser::parseVariants(QJsonArray jsonArray)
+{
+    for (ComputerPart* model: m_variantsList){
+        delete model;
+    }
+    m_variantsList.clear();
+
+    for (int i = 0; i < jsonArray.count(); i++){
+        ComputerPart *model = new ComputerPart;
+        QJsonObject jObj = jsonArray[i].toObject();
+
+        //check if there are required fields
+        if (!jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_type)       ||
+            !jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_vendor)     ||
+            !jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_price)      ||
+            !jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_perfomance))
+        {
+            printf("Error in variant object. It doesnt have required fields, which are: %s; %s; %s; %s. Array index is %d\n",
+                   qPrintable(StaticStringConstants::FileParser::jobj_variant_type),
+                   qPrintable(StaticStringConstants::FileParser::jobj_variant_vendor),
+                   qPrintable(StaticStringConstants::FileParser::jobj_variant_price),
+                   qPrintable(StaticStringConstants::FileParser::jobj_variant_perfomance),
+                   i);
+            return false; //TODO: mem leak
+        }
+        //object have all required fields
+        QString _type = jObj[StaticStringConstants::FileParser::jobj_variant_type].toString();
+        QString _compatibility = jObj[StaticStringConstants::FileParser::jobj_variant_compatibility].toString(StaticStringConstants::FileParser::jobj_variant_compatibility_default);
+        QString _product = jObj[StaticStringConstants::FileParser::jobj_variant_product].toString(StaticStringConstants::FileParser::jobj_variant_product_default);
+        QString _vendor = jObj[StaticStringConstants::FileParser::jobj_variant_vendor].toString();
+        QString _perfomance = jObj[StaticStringConstants::FileParser::jobj_variant_perfomance].toString();
+
+        double _price = 0;
+        try {
+            _price = jObj[StaticStringConstants::FileParser::jobj_variant_price].toDouble();
+        } catch (...) {
+            printf("Error in price field \"id\". Variant index is %d\n", i);
+            return false;//TODO: mem leak
+        }
+
+        model->setType(_type);
+        if (model->type() == ComputerPart::Type::Videocard || model->type() == ComputerPart::Type::CPU){
+            if (!jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_side)) {
+                printf("The \"side\" field required for videocards and cpu. Variant index is %d\n", i);
+                return false;//TODO: mem leak
+            }
+            QString _side = jObj[StaticStringConstants::FileParser::jobj_variant_side].toString();
+            model->setSide(_side);
+        }
+
+        model->setCompatibility(_compatibility);
+        model->setName(_product);
+        model->setVendor(_vendor);
+        model->setPerfomance(_perfomance);
+        model->setPrice(_price);
+
+        m_variantsList.append(model);
+    }
     return true;
 }
 
@@ -169,6 +232,11 @@ QString TestFileParser::dataName() const
 QList<QuestionModel*>* TestFileParser::questionsList()
 {
     return &m_questionsList;
+}
+
+QList<ComputerPart *> *TestFileParser::variantsList()
+{
+    return &m_variantsList;
 }
 
 
