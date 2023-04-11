@@ -12,6 +12,12 @@ class Calculation
 {
 public:
 
+    class Constants{
+    public:
+        //static inline double budget_middle_from = 50000;
+        static inline double budget_high_from = 100000;
+    };
+
     class BudgetPrices{
         class Videocard{
         public:
@@ -80,7 +86,6 @@ public:
                 return ComputerPart::Budget::Middle;
             }
             else return ComputerPart::Budget::High;
-
         }
     };
 
@@ -92,9 +97,11 @@ public:
 
     void setQuestionsList(const QList<QuestionModel *> &newQuestionsList);
 
+    void precalculateAnswers();
 private:
     QList<QuestionModel*> m_questionsList;
     QList<Variant*> m_variantList;
+    QList<double> m_answersValues;
     void smallExpertSystemAlgorithm();
 
     void calculateProbabilitiesForVariant(Variant* variant);

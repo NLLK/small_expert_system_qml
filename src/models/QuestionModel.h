@@ -65,6 +65,9 @@ public:
 
     void setId(int newId);
 
+    static QuestionModel* findQuestionInListById(QList<QuestionModel*> *list, int id);
+    double relative_value() const;
+
 signals:
 
     void questionTextChanged();

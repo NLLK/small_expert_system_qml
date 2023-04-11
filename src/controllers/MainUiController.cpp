@@ -127,6 +127,6 @@ void MainUiController::testDone()
 {
     calculation.setQuestionsList(m_questionsList);
     calculation.precalculateVariants(&m_variantsList);
-
+    calculation.precalculateAnswers();
 }
 

@@ -23,6 +23,34 @@ void Calculation::precalculateVariants(QList<ComputerPart*> *variantsList)
     }
 }
 
+void Calculation::precalculateAnswers(){
+    m_answersValues.clear();
+    //perfomance
+    //from Tags::perfomance_from to Tags::perfomance_to
+
+    //budget: Tags::budget
+    double budget = 0;
+    QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::budget);
+    budget = foundQuestion->value();
+    double budget_value = budget/(Constants::budget_high_from - 0.0f);
+    if (budget_value > 1) budget_value = 1;
+
+    m_answersValues.append(budget_value);
+
+    double perfomance_avg = 0;
+
+    int perfomance_number_of_questions = 0;
+
+    for (int i = QuestionModel::Tags::perfomance_from; i <= QuestionModel::Tags::perfomance_to; i++){
+        QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, i);
+        if (foundQuestion == nullptr) continue;
+        perfomance_avg += foundQuestion->relative_value();
+        perfomance_number_of_questions++;
+    }
+    perfomance_avg = perfomance_avg/double(perfomance_number_of_questions);
+    m_answersValues.append(perfomance_avg);
+}
+
 void Calculation::setVariantList(const QList<Variant *> &newVariantList)
 {
     m_variantList = newVariantList;
@@ -84,10 +112,9 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
             p_list->append(createPropabilityPointer(model->side().toUpper() == "AMD" ? 0.95f: 0.05f));
             p_list->append(createPropabilityPointer(model->side().toUpper() == "NVIDIA" ? 0.95f: 0.05f));
 
-            auto itr = std::find_if(m_questionsList.begin(), m_questionsList.end(), [](QuestionModel* someclass) { return someclass->id() == QuestionModel::Tags::videocard_vendor; });
-            QuestionModel* foundQuestion = (*itr);
-            if(itr == m_questionsList.end()) {
-                printf("ERROR. There is no question with id 6");
+            QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::videocard_vendor);
+            if(foundQuestion == nullptr) {
+                printf("ERROR. There is no question with id %d", QuestionModel::Tags::videocard_vendor);
             }
 
             QVariantList optionsForVideocard = foundQuestion->optionsOptions();
@@ -103,10 +130,9 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
             p_list->append(createPropabilityPointer(0.5f));//nvidia / intel
 
             if (model->type() == ComputerPart::Type::Motherboard){
-                auto itr = std::find_if(m_questionsList.begin(), m_questionsList.end(), [](QuestionModel* someclass) { return someclass->id() == QuestionModel::Tags::motherboard_vendor; });
-                QuestionModel* foundQuestion = (*itr);
-                if(itr == m_questionsList.end()) {
-                    printf("ERROR. There is no question with id 6");
+                QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::motherboard_vendor);
+                if(foundQuestion == nullptr) {
+                    printf("ERROR. There is no question with id %d", QuestionModel::Tags::motherboard_vendor);
                 }
 
                 QVariantList optionsForMotherboard = foundQuestion->optionsOptions();

@@ -128,6 +128,23 @@ void QuestionModel::setId(int newId)
     m_id = newId;
 }
 
+QuestionModel *QuestionModel::findQuestionInListById(QList<QuestionModel *> *list, int id)
+{
+    QList<QuestionModel *> _list = *list;
+    auto itr = std::find_if(_list.begin(), _list.end(), [&id](QuestionModel* someclass) { return someclass->id() == id; });
+    QuestionModel* foundQuestion = (*itr);
+    if(itr == _list.end()){
+        return nullptr;
+    }
+    return foundQuestion;
+}
+
+double QuestionModel::relative_value() const
+{
+    return m_relative_value;
+}
+
+
 double QuestionModel::valueToRelativeValue(double value)
 {
     double res = value;
