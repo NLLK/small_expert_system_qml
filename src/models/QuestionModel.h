@@ -22,7 +22,7 @@ public:
         static inline int videocard_side= 51;
         static inline int videocard_vendor = 106;
         static inline int motherboard_vendor = 107;
-        static inline int cpu_vendor = 52;
+        static inline int cpu_side = 52;
         static inline int perfomance_from = 1;
         static inline int perfomance_to = 49;
     };

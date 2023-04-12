@@ -17,28 +17,26 @@ void Calculation::precalculateVariants(QList<ComputerPart*> *variantsList)
 
         variant->setPart(model);
 
+        variant->setAnswersList(m_commonAnswersValues);
         calculateProbabilitiesForVariant(variant);
 
         m_variantList.append(variant);
     }
 }
 
-void Calculation::precalculateAnswers(){
-    m_answersValues.clear();
-    //perfomance
-    //from Tags::perfomance_from to Tags::perfomance_to
-
-    //budget: Tags::budget
+void Calculation::precalculateCommonAnswers(){
+    m_commonAnswersValues.clear();
+    //budget
     double budget = 0;
     QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::budget);
     budget = foundQuestion->value();
-    double budget_value = budget/(Constants::budget_high_from - 0.0f);
-    if (budget_value > 1) budget_value = 1;
 
-    m_answersValues.append(budget_value);
+    m_commonAnswersValues.append(budget < Calculation::Constants::budget_middle_from ? 1.0f : 0.0f);
+    m_commonAnswersValues.append(budget >= Calculation::Constants::budget_middle_from && budget < Calculation::Constants::budget_high_from ? 1.0f : 0.0f);
+    m_commonAnswersValues.append(budget > Calculation::Constants::budget_high_from ? 1.0f : 0.0f);
 
+    //perfomance
     double perfomance_avg = 0;
-
     int perfomance_number_of_questions = 0;
 
     for (int i = QuestionModel::Tags::perfomance_from; i <= QuestionModel::Tags::perfomance_to; i++){
@@ -48,7 +46,10 @@ void Calculation::precalculateAnswers(){
         perfomance_number_of_questions++;
     }
     perfomance_avg = perfomance_avg/double(perfomance_number_of_questions);
-    m_answersValues.append(perfomance_avg);
+
+    m_commonAnswersValues.append(perfomance_avg < Calculation::Constants::perfomance_middle_from ? 1.0f : 0.0f);
+    m_commonAnswersValues.append(perfomance_avg >= Calculation::Constants::perfomance_middle_from && budget < Calculation::Constants::perfomance_high_from ? 1.0f : 0.0f);
+    m_commonAnswersValues.append(perfomance_avg > Calculation::Constants::perfomance_high_from ? 1.0f : 0.0f);
 }
 
 void Calculation::setVariantList(const QList<Variant *> &newVariantList)
@@ -103,14 +104,34 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
     switch(model->type()){
         case ComputerPart::Type::CPU:
         {
-            p_list->append(createPropabilityPointer(model->side().toUpper() == "AMD" ? 0.95f: 0.05f));
-            p_list->append(createPropabilityPointer(model->side().toUpper() == "INTEL" ? 0.95f: 0.05f));
+            QString side_model = model->side().toUpper();
+            p_list->append(createPropabilityPointer(side_model == "AMD" ? 0.95f: 0.05f));
+            p_list->append(createPropabilityPointer(side_model == "INTEL" ? 0.95f: 0.05f));
+
+            QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::cpu_side);
+
+            QVariantList list = foundQuestion->optionsOptions();
+            QString side_choosed = list[int(foundQuestion->relative_value())].toString().toUpper();
+
+            variant->addToAnswersList(side_model == "AMD" ? 1.0 : 0.0);
+            variant->addToAnswersList(side_model == "INTEL" ? 1.0 : 0.0);
+
             break;
         }
         case ComputerPart::Type::Videocard:
         {
-            p_list->append(createPropabilityPointer(model->side().toUpper() == "AMD" ? 0.95f: 0.05f));
-            p_list->append(createPropabilityPointer(model->side().toUpper() == "NVIDIA" ? 0.95f: 0.05f));
+            QString side_model = model->side().toUpper();
+
+            p_list->append(createPropabilityPointer(side_model == "AMD" ? 0.95f: 0.05f));
+            p_list->append(createPropabilityPointer(side_model == "NVIDIA" ? 0.95f: 0.05f));
+
+            QuestionModel* foundQuestionSide = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::videocard_side);
+
+            QVariantList list = foundQuestionSide->optionsOptions();
+            QString side_choosed = list[int(foundQuestionSide->relative_value())].toString().toUpper();
+
+            variant->addToAnswersList(side_model == "AMD" ? 1.0 : 0.0);
+            variant->addToAnswersList(side_model == "NVIDIA" ? 1.0 : 0.0);
 
             QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::videocard_vendor);
             if(foundQuestion == nullptr) {
@@ -119,15 +140,20 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
 
             QVariantList optionsForVideocard = foundQuestion->optionsOptions();
             QString _vendor = model->vendor().toLower();
+            QString choosed_vendor = optionsForVideocard[int(foundQuestion->relative_value())].toString().toLower();
 
             for(QVariant variable : optionsForVideocard){
                 p_list->append(createPropabilityPointer(variable.toString().toLower() == _vendor ? 0.95f : 0.05));
+                variant->addToAnswersList(variable.toString().toLower() == choosed_vendor ? 1.0 : 0.0);
             }
             break;
         }
         default:{
             p_list->append(createPropabilityPointer(0.5f));//amd
             p_list->append(createPropabilityPointer(0.5f));//nvidia / intel
+
+            variant->addToAnswersList(0.5f);
+            variant->addToAnswersList(0.5f);
 
             if (model->type() == ComputerPart::Type::Motherboard){
                 QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::motherboard_vendor);
@@ -137,9 +163,10 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
 
                 QVariantList optionsForMotherboard = foundQuestion->optionsOptions();
                 QString _vendor = model->vendor().toLower();
-
+                QString choosed_vendor = optionsForMotherboard[int(foundQuestion->relative_value())].toString().toLower();
                 for(QVariant variable : optionsForMotherboard){
                     p_list->append(createPropabilityPointer(variable.toString().toLower() == _vendor ? 0.95f : 0.05));
+                    variant->addToAnswersList(variable.toString().toLower() == choosed_vendor ? 1.0 : 0.0);
                 }
             }
 

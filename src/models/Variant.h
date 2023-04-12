@@ -26,11 +26,17 @@ public:
 
     QList<Variant::Propability *> propabilitiesList() const;
 
+    void setAnswersList(const QList<double> &newAnswersList);
+    void addToAnswersList(double value);
+
+    QList<double> answersList() const;
+
 private:
     ComputerPart* m_part;
 
     double m_value = 0.5f;
     QList<Variant::Propability*> m_propabilitiesList; //TODO: mem leak
+    QList<double> m_answersList;
 };
 
 #endif // VARIANT_H

@@ -14,8 +14,11 @@ public:
 
     class Constants{
     public:
-        //static inline double budget_middle_from = 50000;
+        static inline double budget_middle_from = 50000;
         static inline double budget_high_from = 100000;
+
+        static inline double perfomance_middle_from = 0.6f;
+        static inline double perfomance_high_from = 0.8f;
     };
 
     class BudgetPrices{
@@ -97,11 +100,11 @@ public:
 
     void setQuestionsList(const QList<QuestionModel *> &newQuestionsList);
 
-    void precalculateAnswers();
+    void precalculateCommonAnswers();
 private:
     QList<QuestionModel*> m_questionsList;
     QList<Variant*> m_variantList;
-    QList<double> m_answersValues;
+    QList<double> m_commonAnswersValues;
     void smallExpertSystemAlgorithm();
 
     void calculateProbabilitiesForVariant(Variant* variant);

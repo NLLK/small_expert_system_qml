@@ -29,3 +29,18 @@ QList<Variant::Propability *> Variant::propabilitiesList() const
 {
     return m_propabilitiesList;
 }
+
+void Variant::setAnswersList(const QList<double> &newAnswersList)
+{
+    m_answersList = newAnswersList;
+}
+
+void Variant::addToAnswersList(double value)
+{
+    m_answersList.append(value);
+}
+
+QList<double> Variant::answersList() const
+{
+    return m_answersList;
+}
