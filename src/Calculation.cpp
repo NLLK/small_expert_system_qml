@@ -179,5 +179,5 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
 
 void Calculation::smallExpertSystemAlgorithm()
 {
-
+    SmallExpertSystemAlgorithm::algorithm(&m_variantList);
 }

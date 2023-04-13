@@ -11,12 +11,25 @@ public:
     class Propability{
     public:
         void setPropabilities(double trueValue){
-            this->True = trueValue;
-            this->False = 1 - trueValue;
+            this->m_true = trueValue;
+            this->m_false = 1 - trueValue;
+            average_sum += 1; //cus true + false (which is 1 - true) = 1
+            average_counter+=2;
         };
+        void setTrue(double newTrue);
+
+        double True() {return m_true;}
+        double False() {return m_false;}
+
+        static double getAverage() {
+            return Propability::average_sum/Propability::average_counter;//which is always 0.5, i guess
+        };
+
     private:
-        double True = 0.95;
-        double False = 0.05;
+        double m_true = 0.95;
+        double m_false = 0.05;
+        static inline double average_sum = 0;
+        static inline double average_counter = 0;
     };
 
     ComputerPart *part() const;
@@ -30,6 +43,10 @@ public:
     void addToAnswersList(double value);
 
     QList<double> answersList() const;
+
+    double value() const;
+
+    void setValue(double newValue);
 
 private:
     ComputerPart* m_part;

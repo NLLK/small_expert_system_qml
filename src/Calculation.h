@@ -7,6 +7,7 @@
 #include <QList>
 
 #include <src/models/QuestionModel.h>
+#include <src/SmallExpertSystemAlgorithm.h>
 
 class Calculation
 {
@@ -101,11 +102,14 @@ public:
     void setQuestionsList(const QList<QuestionModel *> &newQuestionsList);
 
     void precalculateCommonAnswers();
+
+    void smallExpertSystemAlgorithm();
+
 private:
     QList<QuestionModel*> m_questionsList;
     QList<Variant*> m_variantList;
     QList<double> m_commonAnswersValues;
-    void smallExpertSystemAlgorithm();
+
 
     void calculateProbabilitiesForVariant(Variant* variant);
     Variant::Propability *createPropabilityPointer(double propability);

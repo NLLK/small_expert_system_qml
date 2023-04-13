@@ -44,3 +44,13 @@ QList<double> Variant::answersList() const
 {
     return m_answersList;
 }
+
+double Variant::value() const
+{
+    return m_value;
+}
+
+void Variant::setValue(double newValue)
+{
+    m_value = newValue;
+}
