@@ -76,6 +76,7 @@ Rectangle {
         questionsData[questionIterator].value = value
     }
 
+    // @disable-check M16
     Component.onCompleted: {
         questionPage.numberOfQuestions = MainUiController.numberOfQuestions
         if  (questionPage.numberOfQuestions > 0){

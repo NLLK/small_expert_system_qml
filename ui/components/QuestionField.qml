@@ -15,14 +15,19 @@ Item {
     property real minimum: 0
     property real maximum: 10
     onValueChanged: {
-        if (type === QuestionField.Type.plain){
-            console.log('value', value)
+        if (type === QuestionField.Type.Plain){
+            //var child = questionFieldLoader.item.findChild(function(item) { return item.id === "plainTextField"; });
+            var textField = questionFieldLoader.item.children[0].children[0]
+            var slider = questionFieldLoader.item.children[1]
+            textField.text = value + ''
+            slider.setValue(value)
         }
     }
 
     property ListModel optionsListModel: ListModel{}
 
     Loader{
+        id: questionFieldLoader
         anchors.fill: parent
         sourceComponent: {
             switch (questionField.type){
@@ -63,6 +68,7 @@ Item {
 
     Component{
         id: plainComponent
+
         Item{
             visible: questionField.type === QuestionField.Type.Plain
             anchors.fill: parent
