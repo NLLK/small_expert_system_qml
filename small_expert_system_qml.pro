@@ -8,10 +8,13 @@ CONFIG+= c++17
 SOURCES += \
         main.cpp \
         src/Calculation.cpp \
+        src/SmallExpertSystemAlgorithm.cpp \
         src/TestFileParser.cpp \
         src/controllers/MainUiController.cpp \
         src/models/ComputerPart.cpp \
+        src/models/Propability.cpp \
         src/models/QuestionModel.cpp \
+        src/models/SimplerVariant.cpp \
         src/models/Variant.cpp
 
 RESOURCES += qml.qrc
@@ -29,9 +32,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     src/Calculation.h \
+    src/SmallExpertSystemAlgorithm.h \
     src/StaticStringConstants.h \
     src/TestFileParser.h \
     src/controllers/MainUiController.h \
     src/models/ComputerPart.h \
+    src/models/Propability.h \
     src/models/QuestionModel.h \
+    src/models/SimplerVariant.h \
     src/models/Variant.h
