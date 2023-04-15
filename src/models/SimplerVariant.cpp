@@ -53,3 +53,11 @@ void SimplerVariant::addToPropabilitiesList(Propability value)
 {
     m_propabilities_list.append(value);
 }
+
+bool SimplerVariant::compareByValue(SimplerVariant *first, SimplerVariant* second)
+{
+    if (first->value() > second->value()){
+        return true;
+    }
+    else return false;
+}

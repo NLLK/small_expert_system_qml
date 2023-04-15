@@ -14,6 +14,8 @@ Item{
     signal clicked();
     readonly property real enabledOpacity: 0.2
 
+    property int fontSize
+
     function opacityChooser(item){
         let pressed = 0.4
         let hovered = 0.7
@@ -44,7 +46,7 @@ Item{
             id: triangleText
             text: customButtonItem.text
             font.family: 'Inter'
-            font.pixelSize: 24
+            font.pixelSize: customButtonItem.fontSize ? customButtonItem.fontSize: 24
             color: 'black'
 
             anchors.verticalCenter: triangleImage.verticalCenter
@@ -84,7 +86,7 @@ Item{
         Text {
             id: rectangleText
             text: rectangle.text
-            font.pixelSize: 0.5 * rectangle.height
+            font.pixelSize: customButtonItem.fontSize ? customButtonItem.fontSize:  0.5 * rectangle.height
             anchors.centerIn: parent
         }
 

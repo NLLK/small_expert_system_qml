@@ -102,9 +102,12 @@ Rectangle {
     Text{
         text: questionText
         font.pointSize: 40
+        wrapMode: Text.Wrap
+        width: parent.width
+        horizontalAlignment: Text.AlignHCenter
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: qField.top
-        anchors.bottomMargin: 35
+        anchors.bottomMargin: 20
     }
     CustomButton {
         text: 'Ответить'

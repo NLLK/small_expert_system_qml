@@ -4,14 +4,15 @@ import "./pages"
 import "pageLoader.js" as PageLoaderJs
 
 Window {
+    id: mainWindow
     minimumHeight: 720
     minimumWidth: 1280
     visible: true
-    title: qsTr("Экспертная система \"ПК-мастер\"")
+    title: MainUiController.dataName == "" ? "Малая экспертная система": "Малая экспертная система: "+MainUiController.dataName
 
     Loader{
         id: mainLoader
-        source: PageLoaderJs.PagesFilePathEnum.START_PAGE //PageLoaderJs.PagesFilePathEnum.SHOW_CHOOSEN_FILE_PAGE
+        source: PageLoaderJs.PagesFilePathEnum.START_PAGE
         anchors.fill: parent
     }
 }

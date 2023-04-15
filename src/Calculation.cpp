@@ -178,4 +178,7 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
 void Calculation::smallExpertSystemAlgorithm()
 {
     SmallExpertSystemAlgorithm::algorithm(&m_variantList, &m_questionsList);
+
+    std::sort(m_variantList.begin(), m_variantList.end(), SimplerVariant::compareByValue);
+
 }

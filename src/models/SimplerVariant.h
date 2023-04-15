@@ -25,13 +25,15 @@ public:
     QList<Propability> propabilities_list() const;
     void addToPropabilitiesList(Propability value);
 
+    static bool compareByValue(SimplerVariant* first, SimplerVariant* second);
+
 signals:
     void variant_textChanged();
     void match_percentageChanged();
 
 private:
-    QString m_variant_text;
-    QString m_match_percentage;
+    QString m_variant_text = "test";
+    QString m_match_percentage = "test";
 
     QList<Propability> m_propabilities_list;
 

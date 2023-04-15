@@ -107,6 +107,7 @@ public:
 
     void smallExpertSystemAlgorithm();
 
+
 private:
     QList<QuestionModel*> m_questionsList;
     QList<SimplerVariant*> m_variantList;

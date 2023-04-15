@@ -126,10 +126,18 @@ void MainUiController::stopTest()
 void MainUiController::testDone()
 {
     calculation.setQuestionsList(m_questionsList);
-   // calculation.precalculateCommonAnswers();
     calculation.setVariantList(m_variantsList);
-    //calculation.precalculateVariants(&m_variantsList);
     calculation.smallExpertSystemAlgorithm();
 
+    for (int i = 0; i < 3; i++){
+        m_resultsList.append(calculation.getVariantList().at(i));
+    }
+
+    emit resultsListChanged();
 }
 
+
+QList<SimplerVariant *> MainUiController::resultsList() const
+{
+    return m_resultsList;
+}

@@ -10,6 +10,7 @@
 class MainUiController: public QObject
 {
     Q_OBJECT
+public:
     Q_PROPERTY(QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged)
     Q_PROPERTY(QString dataName READ dataName WRITE setDataName NOTIFY dataNameChanged)
     Q_PROPERTY(bool isFilePathOK READ isFilePathOK WRITE setIsFilePathOK NOTIFY isFilePathOKChanged)
@@ -17,7 +18,8 @@ class MainUiController: public QObject
     Q_PROPERTY(int numberOfVariants READ numberOfVariants WRITE setNumberOfVariants NOTIFY numberOfVariantsChanged)
 
     Q_PROPERTY(QList<QuestionModel*> questionsList READ questionsList WRITE setQuestionsList NOTIFY questionsListChanged)
-public:
+    Q_PROPERTY(QList<SimplerVariant*> resultsList READ resultsList NOTIFY resultsListChanged)
+
     Q_INVOKABLE void startTest();
     Q_INVOKABLE void testDone();
     Q_INVOKABLE void stopTest();
@@ -46,6 +48,8 @@ public:
     QList<QuestionModel*> questionsList();
     void setQuestionsList(QList<QuestionModel*> newQuestionsList);
 
+    QList<SimplerVariant *> resultsList() const;
+
 signals:
     void filePathChanged();
     void isFilePathOKChanged();
@@ -55,6 +59,7 @@ signals:
     void dataNameChanged();
 
     void questionsListChanged();
+    void resultsListChanged();
 
 private:
     TestFileParser testFileParser;
@@ -68,6 +73,7 @@ private:
     QString m_dataName;
     QList<QuestionModel *> m_questionsList;
     QList<SimplerVariant *> m_variantsList;
+    QList<SimplerVariant *> m_resultsList;
 };
 
 #endif // MAINUICONTROLLER_H
