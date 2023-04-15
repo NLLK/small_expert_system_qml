@@ -44,6 +44,15 @@ public:
         static inline QString jobj_variant_perfomance = "perfomance";
         static inline QString jobj_variant_price = "price";
 
+        //for simpler version
+        static inline QString jobj_variant_text = "text";
+        static inline QString jobj_variant_default = "Текст варианта не был указан!";
+        static inline QString jobj_variant_average = "average";
+        static inline QString jobj_variant_propabilities = "propabilities";
+        static inline QString jobj_variant_propabilities_true = "p_true";
+        static inline QString jobj_variant_propabilities_false = "p_false";
+        static inline QString jobj_variant_propabilities_question_id = "q_id";
+
         //Other constants
         static inline QString dataName_fileParsing_error = "Ошибка в парсинге файла";
 

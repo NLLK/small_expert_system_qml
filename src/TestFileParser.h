@@ -8,9 +8,12 @@
 #include <QJsonArray>
 #include <QFile>
 
+#include <src/models/SimplerVariant.h>
+
 #include "src/StaticStringConstants.h"
 #include "src/models/QuestionModel.h"
-#include "src/models/ComputerPart.h"
+//#include "src/models/ComputerPart.h"
+
 class TestFileParser
 {
 public:
@@ -24,7 +27,7 @@ public:
     QString dataName() const;
 
     QList<QuestionModel*>* questionsList();
-    QList<ComputerPart*>* variantsList();
+    QList<SimplerVariant*>* variantsList();
 
 private:
     int m_questions_number = -1;
@@ -32,7 +35,7 @@ private:
     QUrl m_fileUrl;
     QString m_dataName = StaticStringConstants::FileParser::dataName_fileParsing_error;
     QList<QuestionModel*> m_questionsList;
-    QList<ComputerPart*> m_variantsList;
+    QList<SimplerVariant*> m_variantsList;
     //QFile m_file;
 };
 

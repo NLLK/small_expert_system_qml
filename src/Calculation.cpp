@@ -5,23 +5,21 @@ Calculation::Calculation()
 
 }
 
-void Calculation::precalculateVariants(QList<ComputerPart*> *variantsList)
+void Calculation::precalculateVariants(QList<SimplerVariant*> *variantsList)
 {
-    for (int i = 0; i < variantsList->count(); i++){
+//    for (int i = 0; i < variantsList->count(); i++){
 
-        Variant* variant = new Variant;
+//        Variant* variant = new Variant;
 
-        ComputerPart* model = variantsList->at(i);
-        //define budget type
-        model->setBudget(Calculation::BudgetPrices::getBudgetByPriceNType(model->price(), model->type()));
+//        SimplerVariant* model = variantsList->at(i);
 
-        variant->setPart(model);
+//        //define budget type
+////        model->setBudget(Calculation::BudgetPrices::getBudgetByPriceNType(model->price(), model->type()));
 
-        variant->setAnswersList(m_commonAnswersValues);
-        calculateProbabilitiesForVariant(variant);
+////        variant->setPart(model);
 
-        m_variantList.append(variant);
-    }
+//        m_variantList.append(variant);
+//    }
 }
 
 void Calculation::precalculateCommonAnswers(){
@@ -52,12 +50,12 @@ void Calculation::precalculateCommonAnswers(){
     m_commonAnswersValues.append(perfomance_avg > Calculation::Constants::perfomance_high_from ? 0.95f : 0.05f);
 }
 
-void Calculation::setVariantList(const QList<Variant *> &newVariantList)
+void Calculation::setVariantList(const QList<SimplerVariant *> &newVariantList)
 {
     m_variantList = newVariantList;
 }
 
-QList<Variant *> Calculation::getVariantList() const
+QList<SimplerVariant *> Calculation::getVariantList() const
 {
     return m_variantList;
 }
@@ -82,102 +80,102 @@ void Calculation::calculateProbabilitiesForVariant(Variant* variant)
     //6: side (for non cpu or video - 0.5)
     //8: vendor (for special one - 0.95; other - 0.5)
 
-    ComputerPart* model = variant->part();
+//    ComputerPart* model = variant->part();
 
-    QList<Variant::Propability*>* p_list = new QList<Variant::Propability*>;
+//    QList<Variant::Propability*>* p_list = new QList<Variant::Propability*>;
 
-    //perfomance
-    ComputerPart::Perfomance _perfomance = model->perfomance();
+//    //perfomance
+//    ComputerPart::Perfomance _perfomance = model->perfomance();
 
-    p_list->append(createPropabilityPointer(_perfomance == ComputerPart::Perfomance::Low    ? 0.95f : 0.05));
-    p_list->append(createPropabilityPointer(_perfomance == ComputerPart::Perfomance::Middle ? 0.95f : 0.05));
-    p_list->append(createPropabilityPointer(_perfomance == ComputerPart::Perfomance::High   ? 0.95f : 0.05));
+//    p_list->append(createPropabilityPointer(_perfomance == ComputerPart::Perfomance::Low    ? 0.95f : 0.05));
+//    p_list->append(createPropabilityPointer(_perfomance == ComputerPart::Perfomance::Middle ? 0.95f : 0.05));
+//    p_list->append(createPropabilityPointer(_perfomance == ComputerPart::Perfomance::High   ? 0.95f : 0.05));
 
-    //budget
-    ComputerPart::Budget _budget = model->budget();
+//    //budget
+//    ComputerPart::Budget _budget = model->budget();
 
-    p_list->append(createPropabilityPointer(_budget == ComputerPart::Budget::Low    ? 0.95f : 0.05));
-    p_list->append(createPropabilityPointer(_budget == ComputerPart::Budget::Middle ? 0.95f : 0.05));
-    p_list->append(createPropabilityPointer(_budget == ComputerPart::Budget::High   ? 0.95f : 0.05));
+//    p_list->append(createPropabilityPointer(_budget == ComputerPart::Budget::Low    ? 0.95f : 0.05));
+//    p_list->append(createPropabilityPointer(_budget == ComputerPart::Budget::Middle ? 0.95f : 0.05));
+//    p_list->append(createPropabilityPointer(_budget == ComputerPart::Budget::High   ? 0.95f : 0.05));
 
-    //side (like amd or not?) and vendor
-    switch(model->type()){
-        case ComputerPart::Type::CPU:
-        {
-            QString side_model = model->side().toUpper();
-            p_list->append(createPropabilityPointer(side_model == "AMD" ? 0.95f: 0.05f));
-            p_list->append(createPropabilityPointer(side_model == "INTEL" ? 0.95f: 0.05f));
+//    //side (like amd or not?) and vendor
+//    switch(model->type()){
+//        case ComputerPart::Type::CPU:
+//        {
+//            QString side_model = model->side().toUpper();
+//            p_list->append(createPropabilityPointer(side_model == "AMD" ? 0.95f: 0.05f));
+//            p_list->append(createPropabilityPointer(side_model == "INTEL" ? 0.95f: 0.05f));
 
-            QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::cpu_side);
+//            QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::cpu_side);
 
-            QVariantList list = foundQuestion->optionsOptions();
-            QString side_choosed = list[int(foundQuestion->relative_value())].toString().toUpper();
+//            QVariantList list = foundQuestion->optionsOptions();
+//            QString side_choosed = list[int(foundQuestion->relative_value())].toString().toUpper();
 
-            variant->addToAnswersList(side_model == "AMD" ? 0.95f : 0.05f);
-            variant->addToAnswersList(side_model == "INTEL" ? 0.95f : 0.05f);
+//            variant->addToAnswersList(side_model == "AMD" ? 0.95f : 0.05f);
+//            variant->addToAnswersList(side_model == "INTEL" ? 0.95f : 0.05f);
 
-            break;
-        }
-        case ComputerPart::Type::Videocard:
-        {
-            QString side_model = model->side().toUpper();
+//            break;
+//        }
+//        case ComputerPart::Type::Videocard:
+//        {
+//            QString side_model = model->side().toUpper();
 
-            p_list->append(createPropabilityPointer(side_model == "AMD" ? 0.95f: 0.05f));
-            p_list->append(createPropabilityPointer(side_model == "NVIDIA" ? 0.95f: 0.05f));
+//            p_list->append(createPropabilityPointer(side_model == "AMD" ? 0.95f: 0.05f));
+//            p_list->append(createPropabilityPointer(side_model == "NVIDIA" ? 0.95f: 0.05f));
 
-            QuestionModel* foundQuestionSide = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::videocard_side);
+//            QuestionModel* foundQuestionSide = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::videocard_side);
 
-            QVariantList list = foundQuestionSide->optionsOptions();
-            QString side_choosed = list[int(foundQuestionSide->relative_value())].toString().toUpper();
+//            QVariantList list = foundQuestionSide->optionsOptions();
+//            QString side_choosed = list[int(foundQuestionSide->relative_value())].toString().toUpper();
 
-            variant->addToAnswersList(side_model == "AMD" ? 0.95f : 0.05f);
-            variant->addToAnswersList(side_model == "NVIDIA" ? 0.95f : 0.05f);
+//            variant->addToAnswersList(side_model == "AMD" ? 0.95f : 0.05f);
+//            variant->addToAnswersList(side_model == "NVIDIA" ? 0.95f : 0.05f);
 
-            QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::videocard_vendor);
-            if(foundQuestion == nullptr) {
-                printf("ERROR. There is no question with id %d", QuestionModel::Tags::videocard_vendor);
-            }
+//            QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::videocard_vendor);
+//            if(foundQuestion == nullptr) {
+//                printf("ERROR. There is no question with id %d", QuestionModel::Tags::videocard_vendor);
+//            }
 
-            QVariantList optionsForVideocard = foundQuestion->optionsOptions();
-            QString _vendor = model->vendor().toLower();
-            QString choosed_vendor = optionsForVideocard[int(foundQuestion->relative_value())].toString().toLower();
+//            QVariantList optionsForVideocard = foundQuestion->optionsOptions();
+//            QString _vendor = model->vendor().toLower();
+//            QString choosed_vendor = optionsForVideocard[int(foundQuestion->relative_value())].toString().toLower();
 
-            for(QVariant variable : optionsForVideocard){
-                p_list->append(createPropabilityPointer(variable.toString().toLower() == _vendor ? 0.95f : 0.05));
-                variant->addToAnswersList(variable.toString().toLower() == choosed_vendor ? 0.95f : 0.05f);
-            }
-            break;
-        }
-        default:{
-            p_list->append(createPropabilityPointer(0.5f));//amd
-            p_list->append(createPropabilityPointer(0.5f));//nvidia / intel
+//            for(QVariant variable : optionsForVideocard){
+//                p_list->append(createPropabilityPointer(variable.toString().toLower() == _vendor ? 0.95f : 0.05));
+//                variant->addToAnswersList(variable.toString().toLower() == choosed_vendor ? 0.95f : 0.05f);
+//            }
+//            break;
+//        }
+//        default:{
+//            p_list->append(createPropabilityPointer(0.5f));//amd
+//            p_list->append(createPropabilityPointer(0.5f));//nvidia / intel
 
-            variant->addToAnswersList(0.5f);
-            variant->addToAnswersList(0.5f);
+//            variant->addToAnswersList(0.5f);
+//            variant->addToAnswersList(0.5f);
 
-            if (model->type() == ComputerPart::Type::Motherboard){
-                QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::motherboard_vendor);
-                if(foundQuestion == nullptr) {
-                    printf("ERROR. There is no question with id %d", QuestionModel::Tags::motherboard_vendor);
-                }
+//            if (model->type() == ComputerPart::Type::Motherboard){
+//                QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::motherboard_vendor);
+//                if(foundQuestion == nullptr) {
+//                    printf("ERROR. There is no question with id %d", QuestionModel::Tags::motherboard_vendor);
+//                }
 
-                QVariantList optionsForMotherboard = foundQuestion->optionsOptions();
-                QString _vendor = model->vendor().toLower();
-                QString choosed_vendor = optionsForMotherboard[int(foundQuestion->relative_value())].toString().toLower();
-                for(QVariant variable : optionsForMotherboard){
-                    p_list->append(createPropabilityPointer(variable.toString().toLower() == _vendor ? 0.95f : 0.05));
-                    variant->addToAnswersList(variable.toString().toLower() == choosed_vendor ? 0.95f : 0.05f);
-                }
-            }
+//                QVariantList optionsForMotherboard = foundQuestion->optionsOptions();
+//                QString _vendor = model->vendor().toLower();
+//                QString choosed_vendor = optionsForMotherboard[int(foundQuestion->relative_value())].toString().toLower();
+//                for(QVariant variable : optionsForMotherboard){
+//                    p_list->append(createPropabilityPointer(variable.toString().toLower() == _vendor ? 0.95f : 0.05));
+//                    variant->addToAnswersList(variable.toString().toLower() == choosed_vendor ? 0.95f : 0.05f);
+//                }
+//            }
 
-            break;
-        }
-    }
+//            break;
+//        }
+//    }
 
-    variant->setPropabilitiesList(*p_list);
+   // variant->setPropabilitiesList(*p_list);
 }
 
 void Calculation::smallExpertSystemAlgorithm()
 {
-    SmallExpertSystemAlgorithm::algorithm(&m_variantList);
+    SmallExpertSystemAlgorithm::algorithm(&m_variantList, &m_questionsList);
 }

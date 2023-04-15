@@ -126,8 +126,9 @@ void MainUiController::stopTest()
 void MainUiController::testDone()
 {
     calculation.setQuestionsList(m_questionsList);
-    calculation.precalculateCommonAnswers();
-    calculation.precalculateVariants(&m_variantsList);
+   // calculation.precalculateCommonAnswers();
+    calculation.setVariantList(m_variantsList);
+    //calculation.precalculateVariants(&m_variantsList);
     calculation.smallExpertSystemAlgorithm();
 
 }

@@ -67,7 +67,7 @@ private:
     int m_numberOfVariants = 0;
     QString m_dataName;
     QList<QuestionModel *> m_questionsList;
-    QList<ComputerPart*> m_variantsList;
+    QList<SimplerVariant *> m_variantsList;
 };
 
 #endif // MAINUICONTROLLER_H

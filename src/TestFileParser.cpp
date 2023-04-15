@@ -149,59 +149,70 @@ bool TestFileParser::parseQuestions(QJsonArray jsonArray)
 
 bool TestFileParser::parseVariants(QJsonArray jsonArray)
 {
-    for (ComputerPart* model: m_variantsList){
+    for (SimplerVariant* model: m_variantsList){
         delete model;
     }
     m_variantsList.clear();
 
     for (int i = 0; i < jsonArray.count(); i++){
-        ComputerPart *model = new ComputerPart;
+        SimplerVariant *model = new SimplerVariant;
         QJsonObject jObj = jsonArray[i].toObject();
 
         //check if there are required fields
-        if (!jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_type)       ||
-            !jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_vendor)     ||
-            !jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_price)      ||
-            !jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_perfomance))
+        if (!jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_average)     ||
+            !jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_propabilities))
         {
-            printf("Error in variant object. It doesnt have required fields, which are: %s; %s; %s; %s. Array index is %d\n",
-                   qPrintable(StaticStringConstants::FileParser::jobj_variant_type),
-                   qPrintable(StaticStringConstants::FileParser::jobj_variant_vendor),
-                   qPrintable(StaticStringConstants::FileParser::jobj_variant_price),
-                   qPrintable(StaticStringConstants::FileParser::jobj_variant_perfomance),
+            printf("Error in variant object. It doesnt have required fields, which are: %s; %s. Array index is %d\n",
+                   qPrintable(StaticStringConstants::FileParser::jobj_variant_average),
+                   qPrintable(StaticStringConstants::FileParser::jobj_variant_propabilities),
                    i);
+
             return false; //TODO: mem leak
         }
         //object have all required fields
-        QString _type = jObj[StaticStringConstants::FileParser::jobj_variant_type].toString();
-        QString _compatibility = jObj[StaticStringConstants::FileParser::jobj_variant_compatibility].toString(StaticStringConstants::FileParser::jobj_variant_compatibility_default);
-        QString _product = jObj[StaticStringConstants::FileParser::jobj_variant_product].toString(StaticStringConstants::FileParser::jobj_variant_product_default);
-        QString _vendor = jObj[StaticStringConstants::FileParser::jobj_variant_vendor].toString();
-        QString _perfomance = jObj[StaticStringConstants::FileParser::jobj_variant_perfomance].toString();
+        QString _text = jObj[StaticStringConstants::FileParser::jobj_variant_text].toString(StaticStringConstants::FileParser::jobj_variant_default);
+        double _average = 0;
 
-        double _price = 0;
-        try {
-            _price = jObj[StaticStringConstants::FileParser::jobj_variant_price].toDouble();
-        } catch (...) {
-            printf("Error in price field \"id\". Variant index is %d\n", i);
+        if (!Propability::validatePropabilityFromQJsonValue(jObj[StaticStringConstants::FileParser::jobj_variant_average], &_average )){
+            printf("Error in field \"average\". Array index is %d\n", i);
             return false;//TODO: mem leak
         }
 
-        model->setType(_type);
-        if (model->type() == ComputerPart::Type::Videocard || model->type() == ComputerPart::Type::CPU){
-            if (!jObj.keys().contains(StaticStringConstants::FileParser::jobj_variant_side)) {
-                printf("The \"side\" field required for videocards and cpu. Variant index is %d\n", i);
+        QJsonArray _propabilities =  jObj[StaticStringConstants::FileParser::jobj_variant_propabilities].toArray();
+
+        for(QJsonValue _jPropability: _propabilities){
+            Propability propability;
+
+            int _id = -1;
+            try {
+                _id = _jPropability[StaticStringConstants::FileParser::jobj_variant_propabilities_question_id].toInt();
+            } catch (...) {
+                printf("Error in variant field \"id\". Question index is %d\n", i);
+                return false; //TODO: mem leak
+            }
+
+            double p_true = -1;
+            double p_false = -1;
+
+            if (!Propability::validatePropabilityFromQJsonValue(_jPropability[StaticStringConstants::FileParser::jobj_variant_propabilities_true], &p_true )){
+                printf("Error in some of propabilites field. Array index is %d\n", i);
                 return false;//TODO: mem leak
             }
-            QString _side = jObj[StaticStringConstants::FileParser::jobj_variant_side].toString();
-            model->setSide(_side);
+
+            if (!Propability::validatePropabilityFromQJsonValue(_jPropability[StaticStringConstants::FileParser::jobj_variant_propabilities_false], &p_false )){
+                printf("Error in some of propabilites field. Array index is %d\n", i);
+                return false;//TODO: mem leak
+            }
+
+            propability.setQuestionId(_id);
+            propability.setPropabilities(p_true, p_false);
+
+            model->addToPropabilitiesList(propability);
         }
 
-        model->setCompatibility(_compatibility);
-        model->setName(_product);
-        model->setVendor(_vendor);
-        model->setPerfomance(_perfomance);
-        model->setPrice(_price);
+
+        model->setVariant_text(_text);
+        model->setValue(_average); //initial value is average value
 
         m_variantsList.append(model);
     }
@@ -232,7 +243,7 @@ QList<QuestionModel*>* TestFileParser::questionsList()
     return &m_questionsList;
 }
 
-QList<ComputerPart *>* TestFileParser::variantsList()
+QList<SimplerVariant *>* TestFileParser::variantsList()
 {
     return &m_variantsList;
 }

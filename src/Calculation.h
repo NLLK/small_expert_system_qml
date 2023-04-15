@@ -9,6 +9,8 @@
 #include <src/models/QuestionModel.h>
 #include <src/SmallExpertSystemAlgorithm.h>
 
+#include <src/models/SimplerVariant.h>
+
 class Calculation
 {
 public:
@@ -94,10 +96,10 @@ public:
     };
 
     Calculation();
-    void precalculateVariants(QList<ComputerPart*>* variantsList);
+    void precalculateVariants(QList<SimplerVariant*>* variantsList);
 
-    void setVariantList(const QList<Variant *> &newVariantList);
-    QList<Variant *> getVariantList() const;
+    void setVariantList(const QList<SimplerVariant *> &newVariantList);
+    QList<SimplerVariant *> getVariantList() const;
 
     void setQuestionsList(const QList<QuestionModel *> &newQuestionsList);
 
@@ -107,7 +109,7 @@ public:
 
 private:
     QList<QuestionModel*> m_questionsList;
-    QList<Variant*> m_variantList;
+    QList<SimplerVariant*> m_variantList;
     QList<double> m_commonAnswersValues;
 
 
