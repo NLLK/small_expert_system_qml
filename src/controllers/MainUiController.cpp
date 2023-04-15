@@ -129,6 +129,8 @@ void MainUiController::testDone()
     calculation.setVariantList(m_variantsList);
     calculation.smallExpertSystemAlgorithm();
 
+    m_resultsList.clear();
+
     for (int i = 0; i < 3; i++){
         m_resultsList.append(calculation.getVariantList().at(i));
     }

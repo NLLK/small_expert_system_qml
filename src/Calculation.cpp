@@ -23,35 +23,39 @@ void Calculation::precalculateVariants(QList<SimplerVariant*> *variantsList)
 }
 
 void Calculation::precalculateCommonAnswers(){
-    m_commonAnswersValues.clear();
-    //budget
-    double budget = 0;
-    QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::budget);
-    budget = foundQuestion->value();
+//    m_commonAnswersValues.clear();
+//    //budget
+//    double budget = 0;
+//    QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, QuestionModel::Tags::budget);
+//    budget = foundQuestion->value();
 
-    m_commonAnswersValues.append(budget < Calculation::Constants::budget_middle_from ? 0.95f : 0.05f);
-    m_commonAnswersValues.append(budget >= Calculation::Constants::budget_middle_from && budget < Calculation::Constants::budget_high_from ? 0.95f : 0.05f);
-    m_commonAnswersValues.append(budget > Calculation::Constants::budget_high_from ? 0.95f : 0.05f);
+//    m_commonAnswersValues.append(budget < Calculation::Constants::budget_middle_from ? 0.95f : 0.05f);
+//    m_commonAnswersValues.append(budget >= Calculation::Constants::budget_middle_from && budget < Calculation::Constants::budget_high_from ? 0.95f : 0.05f);
+//    m_commonAnswersValues.append(budget > Calculation::Constants::budget_high_from ? 0.95f : 0.05f);
 
-    //perfomance
-    double perfomance_avg = 0;
-    int perfomance_number_of_questions = 0;
+//    //perfomance
+//    double perfomance_avg = 0;
+//    int perfomance_number_of_questions = 0;
 
-    for (int i = QuestionModel::Tags::perfomance_from; i <= QuestionModel::Tags::perfomance_to; i++){
-        QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, i);
-        if (foundQuestion == nullptr) continue;
-        perfomance_avg += foundQuestion->relative_value();
-        perfomance_number_of_questions++;
-    }
-    perfomance_avg = perfomance_avg/double(perfomance_number_of_questions);
+//    for (int i = QuestionModel::Tags::perfomance_from; i <= QuestionModel::Tags::perfomance_to; i++){
+//        QuestionModel* foundQuestion = QuestionModel::findQuestionInListById(&m_questionsList, i);
+//        if (foundQuestion == nullptr) continue;
+//        perfomance_avg += foundQuestion->relative_value();
+//        perfomance_number_of_questions++;
+//    }
+//    perfomance_avg = perfomance_avg/double(perfomance_number_of_questions);
 
-    m_commonAnswersValues.append(perfomance_avg < Calculation::Constants::perfomance_middle_from ? 0.95f : 0.05f);
-    m_commonAnswersValues.append(perfomance_avg >= Calculation::Constants::perfomance_middle_from && budget < Calculation::Constants::perfomance_high_from ? 0.95f : 0.05f);
-    m_commonAnswersValues.append(perfomance_avg > Calculation::Constants::perfomance_high_from ? 0.95f : 0.05f);
+//    m_commonAnswersValues.append(perfomance_avg < Calculation::Constants::perfomance_middle_from ? 0.95f : 0.05f);
+//    m_commonAnswersValues.append(perfomance_avg >= Calculation::Constants::perfomance_middle_from && budget < Calculation::Constants::perfomance_high_from ? 0.95f : 0.05f);
+//    m_commonAnswersValues.append(perfomance_avg > Calculation::Constants::perfomance_high_from ? 0.95f : 0.05f);
 }
 
 void Calculation::setVariantList(const QList<SimplerVariant *> &newVariantList)
 {
+    for (SimplerVariant * variant : newVariantList){
+        variant->setValue(Propability::getAverage());
+    }
+
     m_variantList = newVariantList;
 }
 
